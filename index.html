@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Redeco Wall Panel</title>
+<meta name="description" content="Redeco Bamboo Charcoal Wall Panel: panel dinding inti arang bambu, 20 motif kayu, warna solid, dan marmer. Ukuran 1,22 × 2,9 m.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@700&display=swap">
+<style>
+/* Design Read: toko online produk material untuk pemilik rumah dan kontraktor,
+   bahasa visual katalog sampel (foto ruangan besar, spesifikasi ringkas),
+   dial ENERGY 1 / RHYTHM 2 / MOTION 1.
+
+   Alasan keputusan (R-31):
+   - Warna: navy + sage diambil dari logo Redeco, charcoal untuk teks. Bronze (dari motif
+     Walnut/Bronze Brown) satu-satunya aksen: hanya di jumlah keranjang dan label "Gratis desain".
+     PALET SEMENTARA sampai palet resmi termic.id didapat.
+   - Huruf: Plus Jakarta Sans, sans umum toko online Indonesia (permintaan owner),
+     angka tabular untuk harga. Poppins Bold hanya untuk wordmark karena logo Redeco memakai bentuk itu.
+   - Motif identitas: tiga bar logo Redeco sebagai penanda judul section.
+   - Kartu: hanya di katalog (setiap motif = produk yang bisa dipilih). Keunggulan ditulis sebagai daftar.
+   - Bayangan: hanya pada lapisan yang menutupi halaman (panel produk, keranjang, pembayaran).
+   - Gerak: MOTION 1, hanya perubahan warna saat hover/focus. Tidak ada animasi masuk. */
+:root {
+  --ink: #26292c;
+  --navy: #304155;
+  --sage: #a8b8b7;
+  --bronze: #8a6646;
+  --paper: #f4f5f4;
+  --surface: #ffffff;
+  --muted: #565d61;
+  --line: #d3d9d8;
+  --btn: var(--navy);
+  --btn-fg: #ffffff;
+  --focus: #304155;
+  --ok: #2f6b4f;
+  --err: #b3261e;
+  --note-bg: #eef1f1;
+  --scrim: rgba(15, 18, 22, .55);
+  --lift: 0 24px 48px -24px rgba(20, 28, 36, .5);
+
+  --f-ui: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-logo: "Poppins", "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --s-1: .25rem; --s-2: .5rem; --s-3: .75rem; --s-4: 1rem; --s-5: 1.5rem; --s-6: 2rem; --s-7: 3rem; --s-8: 5rem;
+  --sec: var(--s-8);
+  --r: 6px;
+  --maxw: 1200px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #e9ecec; --navy: #a9bdd3; --sage: #7d9291; --bronze: #d2a77d;
+    --paper: #15181b; --surface: #1e2226; --muted: #aab1b4; --line: #384047;
+    --btn: #a9bdd3; --btn-fg: #10161d; --focus: #a9bdd3;
+    --ok: #7cc4a0; --err: #f2b8b5; --note-bg: #262b30;
+    --scrim: rgba(0, 0, 0, .65); --lift: 0 24px 48px -24px rgba(0, 0, 0, .9);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #e9ecec; --navy: #a9bdd3; --sage: #7d9291; --bronze: #d2a77d;
+  --paper: #15181b; --surface: #1e2226; --muted: #aab1b4; --line: #384047;
+  --btn: #a9bdd3; --btn-fg: #10161d; --focus: #a9bdd3;
+  --ok: #7cc4a0; --err: #f2b8b5; --note-bg: #262b30;
+  --scrim: rgba(0, 0, 0, .65); --lift: 0 24px 48px -24px rgba(0, 0, 0, .9);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 400 1rem/1.6 var(--f-ui);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+[hidden] { display: none !important; }
+
+.wrap {
+  max-width: var(--maxw); margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { line-height: 1.15; margin: 0; text-wrap: balance; letter-spacing: -.02em; }
+h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; }
+h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -.01em; }
+p { margin: 0; }
+.lead { font-size: 1.08rem; color: var(--muted); max-width: 60ch; }
+.small { font-size: .875rem; color: var(--muted); }
+.ph { font-family: ui-monospace, Menlo, monospace; font-size: .85em; background: var(--note-bg); padding: 0 .3em; border-radius: 3px; }
+
+.demo-bar { background: var(--ink); color: var(--paper); font-size: .8rem; }
+.demo-bar .wrap { padding-block: .45rem; }
+
+/* Header */
+.site-head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--surface); border-bottom: 1px solid var(--line); }
+.head-row { display: flex; align-items: center; gap: var(--s-3); padding-block: .5rem; }
+.logo { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; text-decoration: none; color: var(--ink); font: 700 1.45rem/1 var(--f-logo); letter-spacing: .01em; margin-right: auto; }
+.bars { display: inline-flex; gap: 2px; height: 1.05rem; flex: none; }
+.bars i { display: block; width: .36rem; border-radius: 2px 2px 0 0; }
+.bars i:nth-child(1) { background: var(--navy); }
+.bars i:nth-child(2) { background: var(--line); }
+.bars i:nth-child(3) { background: var(--sage); }
+.nav { display: flex; gap: var(--s-1); }
+.nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .75rem; color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; border-radius: var(--r); }
+.nav a:hover { background: var(--note-bg); }
+.icon-btn, .cart-btn, .menu-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; min-width: 44px;
+  border: 1px solid var(--line); background: var(--surface); padding: 0 .85rem; border-radius: var(--r); font-weight: 600; font-size: .9rem;
+}
+.icon-btn:hover, .cart-btn:hover, .menu-btn:hover { border-color: var(--ink); }
+.cart-count { min-width: 1.5rem; height: 1.5rem; display: inline-grid; place-items: center; border-radius: 999px; background: var(--bronze); color: #fff; font-size: .78rem; font-weight: 700; padding: 0 .35rem; }
+:root[data-theme="dark"] .cart-count { color: #15181b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cart-count { color: #15181b; } }
+.menu-btn { display: none; }
+.mnav { border-top: 1px solid var(--line); }
+.mnav .wrap { display: grid; padding-block: var(--s-2); }
+.mnav a { display: flex; align-items: center; min-height: 48px; color: var(--ink); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--line); }
+.mnav a:last-child { border-bottom: 0; }
+@media (max-width: 820px) { .nav { display: none; } .menu-btn { display: inline-flex; } }
+@media (max-width: 380px) { .theme-label { display: none; } }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: .75rem 1.25rem; border-radius: var(--r); border: 1px solid transparent; font-weight: 700; text-decoration: none; font-size: 1rem; }
+.btn-primary { background: var(--btn); color: var(--btn-fg); }
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-ghost { border-color: var(--ink); background: transparent; color: var(--ink); }
+.btn-ghost:hover { background: var(--note-bg); }
+.btn-block { width: 100%; }
+.link { display: inline-flex; align-items: center; min-height: 44px; background: none; border: 0; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; padding: 0 .25rem; font-size: .9rem; font-weight: 500; }
+
+/* Section heading with logo bars as the repeated identity mark */
+.sec { padding-block: var(--sec); scroll-margin-top: 4rem; }
+.sec-head { display: grid; gap: var(--s-3); margin-bottom: var(--s-6); max-width: 64ch; }
+.sec-head h2 { display: flex; align-items: center; gap: .7rem; }
+.sec-head h2 .bars { height: .9em; }
+.sec-head h2 .bars i { width: .3em; }
+.band { background: var(--surface); border-block: 1px solid var(--line); }
+@media (max-width: 640px) { :root { --sec: var(--s-7); } }
+
+/* Hero */
+.hero { padding-block: var(--s-7) var(--s-8); }
+.hero-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: var(--s-7); align-items: center; }
+.hero-copy { display: grid; gap: var(--s-5); min-width: 0; }
+.hero-cta { display: flex; gap: var(--s-3); flex-wrap: wrap; }
+.specs-row { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); border-top: 1px solid var(--line); padding-top: var(--s-4); margin: 0; }
+.specs-row div { display: grid; }
+.specs-row dt { font-size: .82rem; color: var(--muted); }
+.specs-row dd { margin: 0; font-size: 1.15rem; font-weight: 700; }
+.hero figure { margin: 0; display: grid; gap: var(--s-2); min-width: 0; }
+.hero figure img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r); }
+.hero figcaption { font-size: .875rem; color: var(--muted); }
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: var(--s-6); } .hero { padding-block: var(--s-6) var(--s-7); } }
+
+/* Bahan: layers + tested claims */
+.layers-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1fr); gap: var(--s-7); align-items: center; }
+.layers-grid img { width: 100%; border-radius: var(--r); }
+.layers { list-style: none; margin: 0; padding: 0; counter-reset: l; }
+.layers li { counter-increment: l; display: grid; grid-template-columns: 2.25rem 1fr; gap: var(--s-3); align-items: center; min-height: 56px; border-top: 1px solid var(--line); font-weight: 600; }
+.layers li:last-child { border-bottom: 1px solid var(--line); }
+.layers li::before { content: counter(l); display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+.layers li.core { font-size: 1.1rem; }
+.layers li.core::before { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.layers-note { margin-top: var(--s-4); }
+
+.proof { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: var(--s-7); align-items: start; margin-top: var(--s-8); }
+.tested { display: grid; gap: var(--s-5); margin: var(--s-5) 0 0; padding: 0; list-style: none; }
+.tested li { display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--s-3); }
+.tested .no { font-size: 1.4rem; font-weight: 800; color: var(--muted); line-height: 1.2; }
+.tested p { color: var(--muted); font-size: .95rem; }
+.also { margin-top: var(--s-6); padding-top: var(--s-4); border-top: 1px solid var(--line); }
+.also ul { margin: var(--s-2) 0 0; padding-left: 1.1rem; display: grid; gap: var(--s-1); }
+.proof figure { margin: 0; display: grid; gap: var(--s-2); }
+.proof figure img { border-radius: var(--r); width: 100%; }
+@media (max-width: 860px) {
+  .layers-grid, .proof { grid-template-columns: 1fr; gap: var(--s-5); }
+  .proof figure { order: -1; }
+  .proof { margin-top: var(--s-7); }
+}
+
+/* Catalog */
+.tabs { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-bottom: var(--s-5); }
+.tab { min-height: 44px; border: 1px solid var(--line); background: var(--surface); padding: 0 1rem; border-radius: 999px; font-size: .92rem; font-weight: 600; }
+.tab:hover { border-color: var(--ink); }
+.tab[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tab span { font-weight: 400; margin-left: .3rem; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-6) var(--s-5); }
+@media (max-width: 1040px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5) var(--s-3); } }
+.card { display: grid; gap: var(--s-2); text-align: left; background: none; border: 0; padding: 0; color: inherit; border-radius: var(--r); align-content: start; }
+.card-img { position: relative; overflow: hidden; border-radius: var(--r); aspect-ratio: 1; background: var(--line); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+.tag { position: absolute; top: .5rem; left: .5rem; background: var(--bronze); color: #fff; font-size: .75rem; font-weight: 700; padding: .25rem .5rem; border-radius: 4px; }
+:root[data-theme="dark"] .tag { color: #15181b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag { color: #15181b; } }
+.card-row { display: flex; justify-content: space-between; gap: var(--s-2); align-items: baseline; flex-wrap: wrap; }
+.card .meta { font-size: .82rem; color: var(--muted); }
+.price { font-weight: 700; }
+.price small { font-weight: 500; color: var(--muted); font-size: .8rem; }
+
+/* Aplikasi */
+.usage { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: var(--s-7); align-items: center; }
+.usage img { border-radius: var(--r); width: 100%; }
+.usage ul { margin: var(--s-4) 0 0; padding-left: 1.1rem; display: grid; gap: var(--s-2); }
+@media (max-width: 860px) { .usage { grid-template-columns: 1fr; gap: var(--s-5); } }
+
+/* Hitung */
+.calc-sec .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-7); align-items: start; }
+.calc-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s-5); display: grid; gap: var(--s-4); }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+label.f { display: grid; gap: 4px; font-size: .875rem; font-weight: 600; }
+label.f input, label.f select, label.f textarea { width: 100%; min-height: 48px; border: 1px solid var(--muted); background: var(--surface); padding: .6rem .75rem; border-radius: var(--r); min-width: 0; font-weight: 400; font-size: 1rem; }
+.result { border-top: 1px solid var(--line); padding-top: var(--s-4); display: grid; gap: var(--s-2); }
+.result b.big { font-size: 1.6rem; font-weight: 800; }
+.facts { display: grid; gap: var(--s-4); }
+.facts div { border-top: 1px solid var(--line); padding-top: var(--s-3); }
+.facts h3 { margin-bottom: 4px; }
+@media (max-width: 860px) { .calc-sec .wrap { grid-template-columns: 1fr; gap: var(--s-6); } }
+@media (max-width: 420px) { .fields { grid-template-columns: 1fr; } }
+
+footer { padding-block: var(--s-6); color: var(--muted); font-size: .875rem; border-top: 1px solid var(--line); }
+footer .wrap { display: grid; gap: var(--s-2); }
+
+/* Overlays */
+.overlay { position: fixed; inset: 0; z-index: 40; background: var(--scrim); display: flex; justify-content: flex-end; }
+.panel {
+  background: var(--surface); width: min(560px, 100%); height: 100%; overflow-y: auto; box-shadow: var(--lift);
+  padding: calc(var(--s-4) + env(safe-area-inset-top, 0px)) max(var(--s-5), env(safe-area-inset-right, 0px)) calc(var(--s-6) + env(safe-area-inset-bottom, 0px)) var(--s-5);
+  display: grid; align-content: start; gap: var(--s-5);
+}
+.panel.wide { width: min(980px, 100%); }
+@media (max-width: 480px) { .panel { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); } }
+.panel-head { display: flex; justify-content: space-between; align-items: center; gap: var(--s-4); }
+.x { border: 1px solid var(--line); background: var(--surface); width: 44px; height: 44px; border-radius: 50%; font-size: 1.3rem; line-height: 1; flex: none; }
+.x:hover { border-color: var(--ink); }
+
+.pd { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: var(--s-6); }
+.pd-gallery { display: grid; gap: var(--s-2); align-content: start; }
+.pd-gallery > img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r); }
+.thumbs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--s-2); }
+.thumbs button { padding: 0; border: 2px solid transparent; border-radius: var(--r); overflow: hidden; background: none; min-height: 44px; }
+.thumbs button[aria-pressed="true"] { border-color: var(--ink); }
+.thumbs img { aspect-ratio: 1; object-fit: cover; width: 100%; }
+.pd-info { display: grid; gap: var(--s-4); align-content: start; }
+.pd-price { font-size: 1.6rem; font-weight: 800; }
+.pd-price small { font-size: .9rem; font-weight: 500; color: var(--muted); }
+.field { display: grid; gap: var(--s-2); }
+.lbl { font-size: .875rem; font-weight: 700; }
+.seg { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+.seg button { min-height: 44px; min-width: 72px; border: 1px solid var(--line); background: var(--surface); padding: 0 1rem; border-radius: var(--r); font-weight: 600; }
+.seg button[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--muted); border-radius: var(--r); width: max-content; }
+.qty button { width: 44px; height: 44px; border: 0; background: none; font-size: 1.2rem; }
+.qty input { width: 3.5rem; text-align: center; border: 0; background: none; height: 44px; -moz-appearance: textfield; font-weight: 600; }
+.qty input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.note { background: var(--note-bg); padding: var(--s-3) var(--s-4); border-radius: var(--r); font-size: .9rem; }
+.specs { display: grid; grid-template-columns: auto 1fr; gap: 4px var(--s-4); font-size: .9rem; margin: 0; }
+.specs dt { color: var(--muted); }
+.specs dd { margin: 0; font-weight: 600; }
+@media (max-width: 760px) { .pd { grid-template-columns: 1fr; } }
+
+.line-item { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: var(--s-3); align-items: start; padding-block: var(--s-3); border-bottom: 1px solid var(--line); }
+.line-item img { width: 64px; height: 64px; object-fit: cover; border-radius: var(--r); }
+.line-item .t { font-weight: 700; }
+.line-item .s { color: var(--muted); font-size: .85rem; }
+.li-ctrl { display: flex; gap: var(--s-3); align-items: center; margin-top: var(--s-2); flex-wrap: wrap; }
+.sum { display: grid; gap: var(--s-2); }
+.sum div { display: flex; justify-content: space-between; gap: var(--s-4); }
+.sum .total { font-weight: 800; font-size: 1.15rem; border-top: 1px solid var(--line); padding-top: var(--s-3); margin-top: var(--s-2); }
+.empty { padding-block: var(--s-6); display: grid; gap: var(--s-4); justify-items: start; }
+
+.co { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: var(--s-6); }
+.form { display: grid; gap: var(--s-3); align-content: start; }
+.form-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+.check { display: flex; gap: var(--s-3); align-items: flex-start; border: 1px solid var(--line); border-radius: var(--r); padding: var(--s-3); font-size: .95rem; cursor: pointer; }
+.check input { width: 22px; height: 22px; margin: .1rem 0 0; flex: none; accent-color: var(--navy); }
+.co-side { background: var(--paper); border-radius: var(--r); padding: var(--s-5); display: grid; gap: var(--s-4); align-content: start; }
+.err { color: var(--err); font-size: .9rem; font-weight: 600; }
+.err::before { content: "! "; }
+@media (max-width: 760px) { .co { grid-template-columns: 1fr; } .form-2 { grid-template-columns: 1fr; } }
+
+/* Midtrans Snap simulation */
+.snap-wrap { position: fixed; inset: 0; z-index: 50; background: var(--scrim); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.snap { width: min(400px, 100%); max-height: 100%; overflow-y: auto; background: var(--surface); border-radius: 10px; box-shadow: var(--lift); }
+.snap-top { background: #0f2a44; color: #fff; padding: var(--s-4) var(--s-5); display: grid; gap: 2px; border-radius: 10px 10px 0 0; }
+.snap-top small { color: #c9d6e3; font-size: .8rem; }
+.snap-top b { font-size: 1.4rem; }
+.snap-body { padding: var(--s-4) var(--s-5) var(--s-5); display: grid; gap: var(--s-3); }
+.pm { display: flex; justify-content: space-between; align-items: center; gap: var(--s-3); border: 1px solid var(--line); background: var(--surface); min-height: 56px; padding: .6rem .9rem; border-radius: 6px; text-align: left; width: 100%; }
+.pm:hover { border-color: var(--ink); }
+.pm small { color: var(--muted); display: block; font-size: .8rem; }
+.va { font-size: 1.3rem; font-weight: 800; letter-spacing: .04em; background: var(--paper); padding: var(--s-3); border-radius: 6px; text-align: center; }
+.qr { width: 180px; height: 180px; margin: 0 auto; image-rendering: pixelated; }
+.status { text-align: center; display: grid; gap: var(--s-3); justify-items: center; padding-block: var(--s-4); }
+.status-ico { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 1.5rem; font-weight: 800; color: var(--surface); }
+.status-ico.ok { background: var(--ok); }
+.status-ico.bad { background: var(--err); }
+.spinner { width: 36px; height: 36px; border-radius: 50%; border: 3px solid var(--line); border-top-color: var(--ink); animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; border-top-color: var(--line); } }
+
+.toast { position: fixed; left: 50%; bottom: calc(var(--s-5) + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: .7rem 1.1rem; border-radius: var(--r); font-size: .92rem; z-index: 60; max-width: calc(100% - 32px); }
+</style>
+</head>
+<body>
+
+<div class="demo-bar"><div class="wrap">Mode demo: harga dan pembayaran masih simulasi, tidak ada transaksi nyata.</div></div>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="logo" href="#top" aria-label="Redeco, ke atas halaman">REDECO <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></a>
+    <nav class="nav" aria-label="Utama">
+      <a href="#bahan">Bahan</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#aplikasi">Aplikasi</a>
+      <a href="#hitung">Hitung panel</a>
+    </nav>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="theme-label" id="themeLabel">Tema</span></button>
+    <button class="cart-btn" id="openCart" type="button">Keranjang <span class="cart-count" id="cartCount">0</span></button>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu" hidden>
+    <div class="wrap">
+      <a href="#bahan">Bahan</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#aplikasi">Aplikasi</a>
+      <a href="#hitung">Hitung panel</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Panel dinding motif kayu dan marmer yang mudah dipasang</h1>
+        <p class="lead">Redeco Bamboo Charcoal Wall Panel dibuat dari serbuk arang bambu, dilapisi film motif. Satu panel menutup 3,54 m² dinding. Ada 20 motif, barang ready.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#katalog">Lihat 20 motif</a>
+          <a class="btn btn-ghost" href="#hitung">Hitung kebutuhan panel</a>
+        </div>
+        <dl class="specs-row">
+          <div><dt>Ukuran</dt><dd>1,22 × 2,9 m</dd></div>
+          <div><dt>Tebal</dt><dd>5 mm / 8 mm</dd></div>
+          <div><dt>Luas per panel</dt><dd>3,54 m²</dd></div>
+        </dl>
+      </div>
+      <figure>
+        <img src="assets/img/wg-walnut-brown.webp" alt="Ruang kerja dengan dinding panel Redeco motif Walnut Brown" width="800" height="800">
+        <figcaption>Wood Grain, motif Walnut Brown, di ruang kerja.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec band" id="bahan">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Isi satu panel Redeco</h2>
+        <p class="lead">Intinya serat arang bambu. Di depan dan belakangnya ada lapisan diamond co-extruded, lalu film motif di permukaan.</p>
+      </div>
+      <div class="layers-grid">
+        <img src="assets/img/layers-wood.webp" alt="Diagram penampang lima lapisan panel Redeco" loading="lazy" width="800" height="800">
+        <div>
+          <ol class="layers" aria-label="Lapisan panel, dari depan ke belakang">
+            <li>PVC Film (seri Marble: PVC/PET Film)</li>
+            <li>PUR Hot Melt Adhesive</li>
+            <li>Co-extruded Diamond Layer</li>
+            <li class="core">Bamboo Charcoal Fiber Substrate</li>
+            <li>Co-extruded Diamond Layer</li>
+          </ol>
+          <p class="small layers-note">Urutan lapisan dari diagram produk Redeco.</p>
+        </div>
+      </div>
+
+      <div class="proof">
+        <div>
+          <h2>Tiga hal yang diuji di foto produk</h2>
+          <ol class="tested">
+            <li><span class="no">01</span><div><h3>Tahan air dan lembap</h3><p>Foto uji: air diteteskan di permukaan panel.</p></div></li>
+            <li><span class="no">02</span><div><h3>Tahan kotor dan noda</h3><p>Foto uji: noda di permukaan dilap dengan kain.</p></div></li>
+            <li><span class="no">03</span><div><h3>Tahan api</h3><p>Foto uji: api korek didekatkan ke permukaan panel.</p></div></li>
+          </ol>
+          <div class="also">
+            <h3>Klaim lain di katalog Redeco</h3>
+            <ul>
+              <li>Antibakteri dan anti rayap</li>
+              <li>Tahan retak</li>
+              <li>Non toxic</li>
+              <li>Mudah dipasang dan dapat ditekuk</li>
+            </ul>
+            <p class="small" style="margin-top:.75rem">Sertifikat atau hasil uji lab untuk klaim di atas: <span class="ph">[proof needed]</span></p>
+          </div>
+        </div>
+        <figure>
+          <img src="assets/img/tests.webp" alt="Tiga foto uji: tetesan air, noda yang dilap, dan api korek di permukaan panel" loading="lazy" width="800" height="800">
+          <figcaption class="small">Foto uji dari materi produk Redeco.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="katalog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Pilih motif</h2>
+        <p class="lead">Harga per panel 1,22 × 2,9 m. Seri Pure Color dan Marble termasuk gratis desain.</p>
+      </div>
+      <div class="tabs" role="group" aria-label="Filter seri" id="tabs"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="sec band" id="aplikasi">
+    <div class="wrap usage">
+      <img src="assets/img/usage.webp" alt="Panel Redeco di lobi kantor, koridor hotel, ruang tamu, dan ruang kantor" loading="lazy" width="800" height="800">
+      <div>
+        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Dipakai di mana saja</h2>
+        <ul>
+          <li>Lobi dan ruang kantor</li>
+          <li>Koridor hotel</li>
+          <li>Ruang tamu, kamar tidur, dan dinding TV</li>
+          <li>Ruang komersial</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec calc-sec" id="hitung">
+    <div class="wrap">
+      <div>
+        <div class="sec-head">
+          <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Hitung kebutuhan panel</h2>
+          <p class="lead">Masukkan ukuran dinding. Hasilnya jumlah panel dan perkiraan harga sebelum ongkir.</p>
+        </div>
+        <div class="facts">
+          <div><h3>Pengiriman</h3><p class="small">Barang ready. PO 3 hari hanya untuk atur pengiriman.</p></div>
+          <div><h3>Packing kayu</h3><p class="small">Untuk pembelian di bawah 7 panel, pilih packing kayu saat checkout. Tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.</p></div>
+          <div><h3>Konsultasi ukuran</h3><p class="small">WhatsApp Redeco: <span class="ph">[nomor WhatsApp Redeco]</span></p></div>
+        </div>
+      </div>
+      <form class="calc-card" id="calcForm" novalidate>
+        <div class="fields">
+          <label class="f" for="cW">Lebar dinding (m)<input id="cW" name="w" type="number" min="0.1" step="0.01" inputmode="decimal" placeholder="contoh 3,5"></label>
+          <label class="f" for="cH">Tinggi dinding (m)<input id="cH" name="h" type="number" min="0.1" step="0.01" inputmode="decimal" placeholder="contoh 2,8"></label>
+        </div>
+        <label class="f" for="cS">Seri<select id="cS" name="s"></select></label>
+        <button class="btn btn-primary" type="submit">Hitung</button>
+        <p class="err" id="calcErr" role="alert" hidden></p>
+        <div class="result" id="calcRes" aria-live="polite">
+          <p class="small">Hasil muncul di sini. Satu panel menutup 3,54 m² (1,22 × 2,9 m).</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Redeco Bamboo Charcoal Wall Panel. Pembayaran diproses oleh Midtrans.</span>
+    <span>Syarat dan ketentuan serta kebijakan privasi: <span class="ph">[menyusul sebelum toko live]</span></span>
+  </div>
+</footer>
+
+<div class="overlay" id="pdOverlay" hidden>
+  <div class="panel wide" role="dialog" aria-modal="true" aria-labelledby="pdTitle" id="pdPanel"></div>
+</div>
+
+<div class="overlay" id="cartOverlay" hidden>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle" id="cartPanel"></div>
+</div>
+
+<div class="snap-wrap" id="snap" hidden>
+  <div class="snap" role="dialog" aria-modal="true" aria-label="Pembayaran Midtrans" id="snapBox"></div>
+</div>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+// Nama Marble (MB-xx), WG-06, dan WG-07 belum ada di materi Redeco: masih nama sementara.
+// Harga di SERIES adalah harga demo sampai ada harga resmi.
+const SERIES = {
+  wood:   { name: "Wood Grain", price: 385000, thick: [5, 8], film: "PVC Film",     img: ["series-wood-grain", "layers-wood"],   free: false },
+  pure:   { name: "Pure Color", price: 365000, thick: [5],    film: "PVC Film",     img: ["series-pure-color", "layers-pure"],   free: true },
+  marble: { name: "Marble",     price: 425000, thick: [5],    film: "PVC/PET Film", img: ["series-marble", "layers-marble"],     free: true },
+};
+const THICK_8_EXTRA = 90000;
+const PANEL_W = 1.22, PANEL_H = 2.9, PANEL_M2 = PANEL_W * PANEL_H;
+const WOOD_PACKING = 75000, PACKING_MIN = 7;
+
+const TMP_NAMES = ["WG-06", "WG-07", "MB-01", "MB-02", "MB-03", "MB-04", "MB-05", "MB-06", "MB-07", "MB-08"];
+const P = (code, name, series, img, room) => ({ id: code.toLowerCase(), code, name, series, img: `assets/img/${img}.webp`, room, tmp: TMP_NAMES.includes(code) });
+const PRODUCTS = [
+  P("WG-01", "Bronze Brown",    "wood",   "wg-bronze-brown",    "koridor"),
+  P("WG-02", "Walnut Brown",    "wood",   "wg-walnut-brown",    "ruang kerja"),
+  P("WG-03", "Coffee Brown",    "wood",   "wg-coffee-brown",    "lobi"),
+  P("WG-04", "Ash Grey",        "wood",   "wg-ash-grey",        "ruang meeting"),
+  P("WG-05", "Almond Beige",    "wood",   "wg-almond-beige",    "ruang keluarga"),
+  P("WG-06", "Espresso Oak",    "wood",   "wg-espresso-oak",    "kamar tidur"),
+  P("WG-07", "Natural Oak",     "wood",   "wg-natural-oak",     "koridor"),
+  P("PC-01", "Mist Gray",       "pure",   "pc-mist-gray",       "lobi"),
+  P("PC-02", "Ivory Cream",     "pure",   "pc-ivory-cream",     "ruang keluarga"),
+  P("PC-03", "Pearl White",     "pure",   "pc-pearl-white",     "ruang keluarga"),
+  P("PC-04", "Soft Greige",     "pure",   "pc-soft-greige",     "ruang keluarga"),
+  P("PC-05", "Charcoal Taupe",  "pure",   "pc-charcoal-taupe",  "ruang keluarga"),
+  P("MB-01", "Onyx Cream",      "marble", "mb-onyx-cream",      "ruang keluarga"),
+  P("MB-02", "Nero Black",      "marble", "mb-nero-black",      "ruang keluarga"),
+  P("MB-03", "Calacatta White", "marble", "mb-calacatta-white", "ruang keluarga"),
+  P("MB-04", "Graphite Stone",  "marble", "mb-graphite-stone",  "ruang keluarga"),
+  P("MB-05", "Rosso Patina",    "marble", "mb-rosso-patina",    "ruang keluarga"),
+  P("MB-06", "Silver Storm",    "marble", "mb-silver-storm",    "ruang keluarga"),
+  P("MB-07", "Travertine Noir", "marble", "mb-travertine-noir", "koridor"),
+  P("MB-08", "Calacatta Gold",  "marble", "mb-calacatta-gold",  "ruang keluarga"),
+];
+
+const $ = (s, el = document) => el.querySelector(s);
+const rp = n => "Rp" + Math.round(n).toLocaleString("id-ID");
+const m2 = n => n.toLocaleString("id-ID", { maximumFractionDigits: 2 });
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const unitPrice = (p, t) => SERIES[p.series].price + (t === 8 ? THICK_8_EXTRA : 0);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+function toast(msg) {
+  const t = $("#toast"); t.textContent = msg; t.hidden = false;
+  clearTimeout(toast.h); toast.h = setTimeout(() => (t.hidden = true), 2600);
+}
+
+/* Tema: ikut sistem sampai pengunjung memilih sendiri. */
+function applyTheme(t) {
+  if (t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  const dark = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  $("#themeLabel").textContent = dark ? "Gelap" : "Terang";
+  $("#themeBtn").setAttribute("aria-label", `Tema ${dark ? "gelap" : "terang"} aktif. Ganti ke ${dark ? "terang" : "gelap"}`);
+}
+$("#themeBtn").addEventListener("click", () => {
+  const cur = document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const next = cur === "dark" ? "light" : "dark";
+  store.set("redeco-theme", next); applyTheme(next);
+});
+applyTheme(store.get("redeco-theme", null));
+
+/* Menu HP */
+const menuBtn = $("#menuBtn"), mnav = $("#mnav");
+function setMenu(open) { mnav.hidden = !open; menuBtn.setAttribute("aria-expanded", open); menuBtn.textContent = open ? "Tutup" : "Menu"; }
+menuBtn.addEventListener("click", () => setMenu(mnav.hidden));
+mnav.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+
+/* Katalog */
+let filter = "all";
+function renderTabs() {
+  const opts = [["all", "Semua", PRODUCTS.length], ...Object.entries(SERIES).map(([k, s]) => [k, s.name, PRODUCTS.filter(p => p.series === k).length])];
+  $("#tabs").innerHTML = opts.map(([k, n, c]) =>
+    `<button class="tab" type="button" data-f="${k}" aria-pressed="${filter === k}">${n}<span>(${c})</span></button>`).join("");
+}
+function renderGrid() {
+  const list = PRODUCTS.filter(p => filter === "all" || p.series === filter);
+  $("#grid").innerHTML = list.map(p => `
+    <button class="card" type="button" data-id="${p.id}" aria-label="${esc(p.name)}, ${SERIES[p.series].name}, ${rp(SERIES[p.series].price)} per panel">
+      <div class="card-img">
+        <img src="${p.img}" alt="" loading="lazy" width="800" height="800">
+        ${SERIES[p.series].free ? '<span class="tag">Gratis desain</span>' : ""}
+      </div>
+      <div class="card-row"><h3>${esc(p.name)}</h3></div>
+      <div class="meta">${SERIES[p.series].name} · ${p.code}${p.tmp ? " · nama sementara" : ""}</div>
+      <div class="price">${rp(SERIES[p.series].price)} <small>/ panel</small></div>
+    </button>`).join("");
+}
+$("#tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-f]"); if (!b) return;
+  filter = b.dataset.f; renderTabs(); renderGrid();
+});
+$("#grid").addEventListener("click", e => { const c = e.target.closest("[data-id]"); if (c) openProduct(c.dataset.id); });
+
+/* Detail produk */
+let pd = null;
+function openProduct(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  pd = { p, thick: SERIES[p.series].thick[0], qty: 1, img: p.img };
+  renderProduct(); openOverlay("#pdOverlay");
+}
+function renderProduct() {
+  const { p, thick, qty, img } = pd, s = SERIES[p.series];
+  const imgs = [p.img, ...s.img.map(n => `assets/img/${n}.webp`), "assets/img/tests.webp", "assets/img/usage.webp"];
+  $("#pdPanel").innerHTML = `
+    <div class="panel-head"><span class="small">${s.name} · ${p.code}${p.tmp ? " · nama motif sementara" : ""}</span><button class="x" type="button" data-close aria-label="Tutup detail produk">×</button></div>
+    <div class="pd">
+      <div class="pd-gallery">
+        <img src="${img}" alt="${esc(p.name)}" width="800" height="800">
+        <div class="thumbs">${imgs.map((i, n) => `<button type="button" data-img="${i}" aria-pressed="${i === img}" aria-label="Foto ${n + 1}"><img src="${i}" alt="" loading="lazy"></button>`).join("")}</div>
+      </div>
+      <div class="pd-info">
+        <h2 id="pdTitle">${esc(p.name)}</h2>
+        <div class="pd-price">${rp(unitPrice(p, thick))} <small>/ panel</small></div>
+        ${s.free ? '<div class="note">Seri ini termasuk gratis desain.</div>' : ""}
+        <div class="field"><span class="lbl" id="thickLbl">Tebal</span>
+          <div class="seg" role="group" aria-labelledby="thickLbl">${s.thick.map(t => `<button type="button" data-thick="${t}" aria-pressed="${t === thick}">${t} mm</button>`).join("")}</div>
+        </div>
+        <div class="field"><label class="lbl" for="pdQty">Jumlah panel</label>
+          <div class="qty"><button type="button" data-q="-1" aria-label="Kurangi satu">−</button><input id="pdQty" type="number" min="1" value="${qty}"><button type="button" data-q="1" aria-label="Tambah satu">+</button></div>
+          <span class="small">Menutup ${m2(qty * PANEL_M2)} m² dinding.</span>
+        </div>
+        ${qty < PACKING_MIN ? `<div class="note">Di bawah ${PACKING_MIN} panel, pilih packing kayu saat checkout (+${rp(WOOD_PACKING)}).</div>` : ""}
+        <button class="btn btn-primary btn-block" type="button" id="addCart">Masukkan ${qty} panel ke keranjang · ${rp(unitPrice(p, thick) * qty)}</button>
+        <dl class="specs">
+          <dt>Ukuran</dt><dd>1,22 × 2,9 m</dd>
+          <dt>Tebal</dt><dd>${s.thick.join(" / ")} mm</dd>
+          <dt>Permukaan</dt><dd>${s.film}</dd>
+          <dt>Inti</dt><dd>Bamboo charcoal fiber</dd>
+          <dt>Stok</dt><dd>Ready, PO 3 hari untuk atur pengiriman</dd>
+        </dl>
+      </div>
+    </div>`;
+}
+$("#pdPanel").addEventListener("click", e => {
+  const t = e.target;
+  if (t.closest("[data-close]")) return closeOverlays();
+  const im = t.closest("[data-img]"); if (im) { pd.img = im.dataset.img; renderProduct(); return $(`[data-img="${pd.img}"]`).focus(); }
+  const th = t.closest("[data-thick]"); if (th) { pd.thick = +th.dataset.thick; renderProduct(); return $(`[data-thick="${pd.thick}"]`).focus(); }
+  const q = t.closest("[data-q]"); if (q) { pd.qty = Math.max(1, pd.qty + +q.dataset.q); renderProduct(); return $(`[data-q="${q.dataset.q}"]`).focus(); }
+  if (t.closest("#addCart")) {
+    addToCart(pd.p.id, pd.thick, pd.qty);
+    closeOverlays(); toast(`${pd.p.name}, ${pd.qty} panel, masuk keranjang`);
+  }
+});
+$("#pdPanel").addEventListener("change", e => {
+  if (e.target.id === "pdQty") { pd.qty = Math.max(1, parseInt(e.target.value) || 1); renderProduct(); $("#pdQty").focus(); }
+});
+
+/* Kalkulator */
+$("#cS").innerHTML = Object.entries(SERIES).map(([k, s]) => `<option value="${k}">${s.name} (${rp(s.price)} / panel)</option>`).join("");
+$("#calcForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const w = parseFloat($("#cW").value), h = parseFloat($("#cH").value), s = SERIES[$("#cS").value];
+  const err = $("#calcErr");
+  if (!(w > 0) || !(h > 0)) {
+    err.textContent = "Isi lebar dan tinggi dinding dalam meter, contoh 3,5.";
+    err.hidden = false; (!(w > 0) ? $("#cW") : $("#cH")).focus(); return;
+  }
+  err.hidden = true;
+  const cols = Math.ceil(w / PANEL_W), rows = Math.ceil(h / PANEL_H), n = cols * rows;
+  $("#calcRes").innerHTML = `
+    <span class="small">Dinding ${m2(w)} × ${m2(h)} m (${m2(w * h)} m²)</span>
+    <b class="big">${n} panel</b>
+    <span class="small">${cols} panel berdampingan × ${rows} baris. Perkiraan ${s.name}: <b>${rp(n * s.price)}</b> sebelum ongkir${n < PACKING_MIN ? " dan packing kayu" : ""}.</span>
+    <a class="link" href="#katalog" data-series="${$("#cS").value}">Pilih motif ${s.name}</a>`;
+});
+$("#calcRes").addEventListener("click", e => {
+  const a = e.target.closest("[data-series]"); if (!a) return;
+  filter = a.dataset.series; renderTabs(); renderGrid();
+});
+
+/* Keranjang */
+let cart = store.get("redeco-cart", []);
+let view = "cart";
+let ship = { packing: false };
+const saveCart = () => { store.set("redeco-cart", cart); $("#cartCount").textContent = cart.reduce((a, i) => a + i.qty, 0); };
+function addToCart(id, thick, qty) {
+  const ex = cart.find(i => i.id === id && i.thick === thick);
+  ex ? (ex.qty += qty) : cart.push({ id, thick, qty });
+  saveCart();
+}
+function totals() {
+  const pcs = cart.reduce((a, i) => a + i.qty, 0);
+  const sub = cart.reduce((a, i) => a + unitPrice(PRODUCTS.find(p => p.id === i.id), i.thick) * i.qty, 0);
+  const packing = ship.packing ? WOOD_PACKING : 0;
+  const shipping = pcs ? 150000 + Math.max(0, pcs - 1) * 35000 : 0; // TODO: ganti dengan tarif kurir asli
+  return { pcs, sub, packing, shipping, total: sub + packing + shipping };
+}
+function itemsHTML(editable) {
+  return cart.map((i, idx) => {
+    const p = PRODUCTS.find(x => x.id === i.id);
+    return `<div class="line-item">
+      <img src="${p.img}" alt="">
+      <div><div class="t">${esc(p.name)}</div><div class="s">${p.code} · ${i.thick} mm · ${rp(unitPrice(p, i.thick))} / panel</div>
+        ${editable
+          ? `<div class="li-ctrl"><div class="qty"><button type="button" data-ci="${idx}" data-d="-1" aria-label="Kurangi ${esc(p.name)}">−</button><input type="number" min="1" value="${i.qty}" data-cq="${idx}" aria-label="Jumlah panel ${esc(p.name)}"><button type="button" data-ci="${idx}" data-d="1" aria-label="Tambah ${esc(p.name)}">+</button></div><button class="link" type="button" data-rm="${idx}">Hapus</button></div>`
+          : `<div class="s">${i.qty} panel</div>`}
+      </div>
+      <div class="price">${rp(unitPrice(p, i.thick) * i.qty)}</div>
+    </div>`;
+  }).join("");
+}
+function sumHTML() {
+  const t = totals();
+  return `<div class="sum">
+    <div><span>Subtotal (${t.pcs} panel)</span><span>${rp(t.sub)}</span></div>
+    <div><span>Packing kayu</span><span>${t.packing ? rp(t.packing) : "Tidak"}</span></div>
+    <div><span>Ongkir (perkiraan demo)</span><span>${rp(t.shipping)}</span></div>
+    <div class="total"><span>Total</span><span>${rp(t.total)}</span></div>
+  </div>`;
+}
+function renderCart() {
+  const panel = $("#cartPanel");
+  panel.classList.toggle("wide", view === "checkout");
+  if (view === "cart") {
+    panel.innerHTML = `
+      <div class="panel-head"><h2 id="cartTitle">Keranjang</h2><button class="x" type="button" data-close aria-label="Tutup keranjang">×</button></div>
+      ${cart.length ? `<div>${itemsHTML(true)}</div>${sumHTML()}
+        <button class="btn btn-primary btn-block" type="button" id="toCheckout">Isi alamat pengiriman</button>`
+      : `<div class="empty"><p>Keranjang masih kosong. Pilih motif di katalog, lalu tentukan jumlah panel.</p><a class="btn btn-ghost" href="#katalog" data-close>Buka katalog</a></div>`}`;
+  } else {
+    const t = totals(), saved = store.get("redeco-buyer", {});
+    const v = k => esc(saved[k] || "");
+    panel.innerHTML = `
+      <div class="panel-head"><h2 id="cartTitle">Checkout</h2><button class="x" type="button" data-close aria-label="Tutup checkout">×</button></div>
+      <div class="co">
+        <form class="form" id="coForm" novalidate>
+          <h3>Alamat pengiriman</h3>
+          <label class="f" for="fName">Nama penerima<input id="fName" name="name" required autocomplete="name" placeholder="Nama sesuai alamat" value="${v("name")}"></label>
+          <div class="form-2">
+            <label class="f" for="fPhone">Nomor WhatsApp<input id="fPhone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx" value="${v("phone")}"></label>
+            <label class="f" for="fEmail">Email<input id="fEmail" name="email" type="email" required autocomplete="email" placeholder="email@contoh.com" value="${v("email")}"></label>
+          </div>
+          <label class="f" for="fAddr">Alamat lengkap<textarea id="fAddr" name="addr" rows="3" required autocomplete="street-address" placeholder="Jalan, nomor, RT/RW, kelurahan">${v("addr")}</textarea></label>
+          <div class="form-2">
+            <label class="f" for="fCity">Kota atau kabupaten<input id="fCity" name="city" required autocomplete="address-level2" value="${v("city")}"></label>
+            <label class="f" for="fZip">Kode pos<input id="fZip" name="zip" required inputmode="numeric" autocomplete="postal-code" value="${v("zip")}"></label>
+          </div>
+          <label class="check" for="fPack"><input id="fPack" type="checkbox" ${ship.packing ? "checked" : ""}>
+            <span><b>Packing kayu (+${rp(WOOD_PACKING)})</b><br><span class="small">${t.pcs < PACKING_MIN ? `Pesanan Anda ${t.pcs} panel. Di bawah ${PACKING_MIN} panel tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.` : `Pesanan ${PACKING_MIN} panel ke atas, packing kayu opsional.`}</span></span></label>
+          <p class="err" id="coErr" role="alert" hidden></p>
+        </form>
+        <aside class="co-side">
+          <h3>Ringkasan pesanan</h3>
+          <div>${itemsHTML(false)}</div>
+          ${sumHTML()}
+          <button class="btn btn-primary btn-block" type="submit" form="coForm">Bayar ${rp(t.total)} lewat Midtrans</button>
+          <button class="link" type="button" id="backCart">Ubah isi keranjang</button>
+          <p class="small">Metode di Midtrans: QRIS, virtual account bank, GoPay, ShopeePay, kartu kredit/debit.</p>
+        </aside>
+      </div>`;
+  }
+}
+$("#openCart").addEventListener("click", () => { view = "cart"; renderCart(); openOverlay("#cartOverlay"); });
+$("#cartPanel").addEventListener("click", e => {
+  const t = e.target;
+  if (t.closest("[data-close]")) return closeOverlays();
+  if (t.closest("#toCheckout")) { view = "checkout"; ship.packing = totals().pcs < PACKING_MIN; renderCart(); return $("#fName").focus(); }
+  if (t.closest("#backCart")) { keepForm(); view = "cart"; renderCart(); return $("#cartPanel .x").focus(); }
+  const d = t.closest("[data-d]");
+  if (d) { const it = cart[+d.dataset.ci]; it.qty = Math.max(1, it.qty + +d.dataset.d); saveCart(); renderCart(); return $(`[data-ci="${d.dataset.ci}"][data-d="${d.dataset.d}"]`).focus(); }
+  const rm = t.closest("[data-rm]"); if (rm) { cart.splice(+rm.dataset.rm, 1); saveCart(); renderCart(); $("#cartPanel .x").focus(); toast("Item dihapus dari keranjang"); }
+});
+$("#cartPanel").addEventListener("change", e => {
+  if (e.target.dataset.cq) { cart[+e.target.dataset.cq].qty = Math.max(1, parseInt(e.target.value) || 1); saveCart(); renderCart(); }
+  if (e.target.id === "fPack") { ship.packing = e.target.checked; keepForm(); renderCart(); $("#fPack").focus(); }
+});
+function keepForm() { const f = $("#coForm"); if (f) store.set("redeco-buyer", Object.fromEntries(new FormData(f))); }
+$("#cartPanel").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target, data = Object.fromEntries(new FormData(f)), err = $("#coErr");
+  const missing = [...f.querySelectorAll("[required]")].filter(i => !i.value.trim());
+  f.querySelectorAll("[aria-invalid]").forEach(i => i.removeAttribute("aria-invalid"));
+  if (missing.length) {
+    missing.forEach(i => i.setAttribute("aria-invalid", "true"));
+    err.textContent = `Lengkapi ${missing.map(i => i.closest("label").firstChild.textContent.trim().toLowerCase()).join(", ")}.`;
+    err.hidden = false; missing[0].focus(); return;
+  }
+  if (!/^\S+@\S+\.\S+$/.test(data.email)) { err.textContent = "Format email belum benar. Contoh: nama@email.com"; err.hidden = false; $("#fEmail").setAttribute("aria-invalid", "true"); $("#fEmail").focus(); return; }
+  err.hidden = true;
+  store.set("redeco-buyer", data);
+  openSnap(data);
+});
+
+/* Simulasi Midtrans Snap.
+   Produksi: backend membuat transaksi Snap lalu frontend memanggil window.snap.pay(token).
+   Status order final diambil dari notifikasi HTTP Midtrans, bukan dari callback browser. */
+let order = null;
+const METHODS = [
+  { id: "qris", name: "QRIS", hint: "Scan dengan e-wallet atau m-banking" },
+  { id: "bca", name: "BCA Virtual Account", hint: "Transfer ke nomor VA" },
+  { id: "bni", name: "BNI Virtual Account", hint: "Transfer ke nomor VA" },
+  { id: "mandiri", name: "Mandiri Bill Payment", hint: "Bayar lewat Livin' atau ATM" },
+  { id: "cc", name: "Kartu kredit atau debit", hint: "Visa, Mastercard, JCB" },
+];
+function openSnap(buyer) {
+  order = { id: "RDC-" + Date.now().toString().slice(-8), total: totals().total, buyer, method: null };
+  $("#snap").hidden = false;
+  renderSnap("loading");
+  setTimeout(() => renderSnap("choose"), 900);
+}
+function renderSnap(step) {
+  const head = `<div class="snap-top"><small>Redeco · ${order.id} · simulasi</small><b>${rp(order.total)}</b></div>`;
+  let body = "";
+  if (step === "loading") {
+    body = `<div class="status"><div class="spinner" aria-hidden="true"></div><p>Menyiapkan halaman pembayaran Midtrans...</p></div>`;
+  } else if (step === "choose") {
+    body = `<h3>Pilih cara bayar</h3>
+      ${METHODS.map(m => `<button class="pm" type="button" data-m="${m.id}"><span><b>${m.name}</b><small>${m.hint}</small></span><span aria-hidden="true">›</span></button>`).join("")}
+      <button class="link" type="button" data-snap="cancel">Batalkan pembayaran</button>`;
+  } else if (step === "pay") {
+    const m = METHODS.find(x => x.id === order.method);
+    const va = { bca: "12345", bni: "98801", mandiri: "70012" }[m.id];
+    body = `<h3>${m.name}</h3>
+      ${m.id === "qris" ? `<canvas class="qr" id="qr" width="29" height="29" role="img" aria-label="Kode QR simulasi"></canvas><p class="small" style="text-align:center">Kode QR simulasi, tidak bisa dipindai.</p>`
+      : m.id === "cc" ? `<div class="form"><label class="f" for="ccNo">Nomor kartu<input id="ccNo" inputmode="numeric" autocomplete="off" placeholder="Nomor kartu tes sandbox"></label><div class="form-2"><label class="f" for="ccExp">Berlaku sampai<input id="ccExp" placeholder="BB/TT"></label><label class="f" for="ccCvv">CVV<input id="ccCvv" inputmode="numeric" placeholder="3 digit"></label></div></div>`
+      : `<p>Nomor virtual account (simulasi):</p><div class="va">${va} ${order.id.replace(/\D/g, "").padStart(10, "0").slice(-10)}</div>`}
+      <p class="small">Demo ini tidak memproses uang. Pilih hasil yang mau disimulasikan:</p>
+      <button class="btn btn-primary btn-block" type="button" data-snap="paid">Simulasikan pembayaran berhasil</button>
+      <button class="btn btn-ghost btn-block" type="button" data-snap="fail">Simulasikan pembayaran gagal</button>
+      <button class="link" type="button" data-snap="back">Ganti cara bayar</button>`;
+  } else if (step === "fail") {
+    body = `<div class="status" role="alert"><div class="status-ico bad" aria-hidden="true">!</div><h3>Pembayaran gagal</h3>
+      <p class="small">Bank menolak transaksi (simulasi). Pesanan belum dibuat dan keranjang tetap tersimpan.</p>
+      <button class="btn btn-primary btn-block" type="button" data-snap="back">Coba cara bayar lain</button>
+      <button class="link" type="button" data-snap="cancel">Kembali ke checkout</button></div>`;
+  } else {
+    body = `<div class="status" role="status"><div class="status-ico ok" aria-hidden="true">✓</div><h3>Pembayaran diterima</h3>
+      <p class="small">Order <b>${order.id}</b> tercatat (simulasi). Di toko asli, status ini dikonfirmasi dari notifikasi Midtrans.</p>
+      <button class="btn btn-primary btn-block" type="button" data-snap="finish">Selesai</button></div>`;
+  }
+  $("#snapBox").innerHTML = head + `<div class="snap-body">${body}</div>`;
+  if (step === "pay" && order.method === "qris") drawQR();
+  ($("#snapBox [data-m], #snapBox [data-snap]") || $("#snapBox")).focus?.();
+}
+function drawQR() {
+  const c = $("#qr"), x = c.getContext("2d"), n = 29;
+  let seed = [...order.id].reduce((a, ch) => a * 31 + ch.charCodeAt(0), 7) >>> 0;
+  const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 2 ** 32);
+  x.fillStyle = "#fff"; x.fillRect(0, 0, n, n); x.fillStyle = "#111";
+  for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) if (rnd() > .52) x.fillRect(i, j, 1, 1);
+  [[0, 0], [n - 7, 0], [0, n - 7]].forEach(([a, b]) => {
+    x.fillStyle = "#111"; x.fillRect(a, b, 7, 7); x.fillStyle = "#fff"; x.fillRect(a + 1, b + 1, 5, 5); x.fillStyle = "#111"; x.fillRect(a + 2, b + 2, 3, 3);
+  });
+}
+function closeSnap() { $("#snap").hidden = true; $("#cartPanel button[type=submit]")?.focus(); }
+$("#snapBox").addEventListener("click", e => {
+  const m = e.target.closest("[data-m]"); if (m) { order.method = m.dataset.m; return renderSnap("pay"); }
+  const a = e.target.closest("[data-snap]")?.dataset.snap;
+  if (a === "cancel") { closeSnap(); toast("Pembayaran dibatalkan. Keranjang masih tersimpan."); }
+  if (a === "back") renderSnap("choose");
+  if (a === "paid") renderSnap("done");
+  if (a === "fail") renderSnap("fail");
+  if (a === "finish") { $("#snap").hidden = true; cart = []; saveCart(); view = "cart"; closeOverlays(); toast(`Order ${order.id} tercatat`); }
+});
+
+/* Overlay: fokus dikunci di dalam dialog, Escape menutup. */
+let lastFocus = null;
+function openOverlay(sel) {
+  lastFocus = document.activeElement;
+  $(sel).hidden = false; document.body.style.overflow = "hidden";
+  $(sel).querySelector("[data-close]")?.focus();
+}
+function closeOverlays() {
+  document.querySelectorAll(".overlay").forEach(o => (o.hidden = true));
+  document.body.style.overflow = "";
+  lastFocus?.focus?.();
+}
+document.querySelectorAll(".overlay").forEach(o => o.addEventListener("click", e => { if (e.target === o) closeOverlays(); }));
+function activeDialog() {
+  if (!$("#snap").hidden) return $("#snapBox");
+  return [...document.querySelectorAll(".overlay")].find(o => !o.hidden)?.firstElementChild || null;
+}
+document.addEventListener("keydown", e => {
+  const dlg = activeDialog();
+  if (e.key === "Escape") {
+    if (!$("#snap").hidden) { closeSnap(); toast("Pembayaran dibatalkan. Keranjang masih tersimpan."); return; }
+    if (dlg) return closeOverlays();
+    if (!mnav.hidden) { setMenu(false); menuBtn.focus(); }
+    return;
+  }
+  if (e.key !== "Tab" || !dlg) return;
+  const f = [...dlg.querySelectorAll("button, a[href], input, select, textarea")].filter(el => !el.disabled && el.offsetParent !== null);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  else if (!dlg.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+});
+
+renderTabs(); renderGrid(); saveCart();
+</script>
+</body>
+</html>
