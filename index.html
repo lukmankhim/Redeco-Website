@@ -14,10 +14,13 @@
    dial ENERGY 1 / RHYTHM 2 / MOTION 1.
 
    Alasan keputusan (R-31):
-   - Warna (arahan owner): mode terang putih bersih, mode malam satin sangat gelap (hitam hangat,
-     bukan abu-abu). Tema ikut setelan HP, bisa diganti lewat tombol tema. Navy + sage dari logo
-     Redeco, charcoal untuk teks. Bronze (dari motif Walnut/Bronze Brown) satu-satunya aksen: hanya
-     di jumlah keranjang dan label "Gratis desain". PALET SEMENTARA sampai palet resmi termic.id didapat.
+   - Warna (arahan owner): mode terang putih bersih. Mode malam mengikuti referensi owner (wallpaper
+     Linux Mint): charcoal pekat, ubin timbul samar dan sorot cahaya di pojok kanan atas, aksen perak.
+     Ubin dipakai karena mirip susunan panel dinding (R-07: motif identitas, bukan dekorasi bawaan).
+     Tema ikut setelan HP, bisa diganti lewat tombol tema. Navy + sage dari logo Redeco. Bronze (dari
+     motif Walnut/Bronze Brown) satu-satunya aksen: hanya di jumlah keranjang dan label "Gratis desain".
+     PALET SEMENTARA sampai palet resmi termic.id didapat.
+   - Bahasa: Indonesia (default) dan English, teks di objek I18N pada script.
    - Huruf: Plus Jakarta Sans, sans umum toko online Indonesia (permintaan owner),
      angka tabular untuk harga. Poppins Bold hanya untuk wordmark karena logo Redeco memakai bentuk itu.
    - Motif identitas: tiga bar logo Redeco sebagai penanda judul section.
@@ -42,6 +45,12 @@
   --on-accent: #ffffff;
   --scrim: rgba(15, 18, 22, .55);
   --lift: 0 24px 48px -24px rgba(20, 28, 36, .5);
+  --page-fx: none;
+  --band-bg: var(--surface);
+  --door: #5b4636; --door-ink: #f6f1ea; --door-muted: #d9cbbb; --door-seam: rgba(0, 0, 0, .35);
+  --door-fx:
+    repeating-linear-gradient(90deg, transparent 0 calc(25vw - 2px), rgba(0, 0, 0, .28) calc(25vw - 2px) 25vw),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 3px, transparent 3px 11px, rgba(0, 0, 0, .04) 11px 13px, transparent 13px 23px);
 
   --f-ui: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --f-logo: "Poppins", "Plus Jakarta Sans", system-ui, sans-serif;
@@ -53,20 +62,40 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #f2eee9; --navy: #a9bdd3; --sage: #7d9291; --bronze: #d2a77d;
-    --paper: #0f0e0d; --surface: #181614; --muted: #b3aba2; --line: #2c2925;
-    --btn: #a9bdd3; --btn-fg: #1a1612; --focus: #a9bdd3;
-    --ok: #7cc4a0; --err: #f2b8b5; --note-bg: #221f1c; --on-accent: #1a1612;
+    --ink: #eceef0; --navy: #c9ced3; --sage: #7f8a89; --bronze: #d2a77d;
+    --paper: #161718; --surface: #1f2021; --muted: #a5a9ad; --line: #2e3032;
+    --btn: #dfe2e5; --btn-fg: #161718; --focus: #dfe2e5;
+    --ok: #7cc4a0; --err: #f2b8b5; --note-bg: #26282a; --on-accent: #1a1612;
     --scrim: rgba(0, 0, 0, .7); --lift: 0 24px 48px -24px rgba(0, 0, 0, .95);
+    --page-fx:
+      radial-gradient(120% 70% at 88% -12%, rgba(255, 255, 255, .09), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, .028) 0 1px, transparent 1px 71px, rgba(0, 0, 0, .45) 71px 72px),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, .022) 0 1px, transparent 1px 71px, rgba(0, 0, 0, .4) 71px 72px);
+    --band-bg: rgba(255, 255, 255, .025);
+    --door: #1d1e1f; --door-ink: #eceef0; --door-muted: #a5a9ad; --door-seam: rgba(0, 0, 0, .6);
+    --door-fx:
+      radial-gradient(110% 60% at 85% 0%, rgba(255, 255, 255, .1), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255, 255, 255, .03) 0 1px, transparent 1px 55px, rgba(0, 0, 0, .5) 55px 56px),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 55px, rgba(0, 0, 0, .45) 55px 56px);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --ink: #f2eee9; --navy: #a9bdd3; --sage: #7d9291; --bronze: #d2a77d;
-  --paper: #0f0e0d; --surface: #181614; --muted: #b3aba2; --line: #2c2925;
-  --btn: #a9bdd3; --btn-fg: #1a1612; --focus: #a9bdd3;
-  --ok: #7cc4a0; --err: #f2b8b5; --note-bg: #221f1c; --on-accent: #1a1612;
+  --ink: #eceef0; --navy: #c9ced3; --sage: #7f8a89; --bronze: #d2a77d;
+  --paper: #161718; --surface: #1f2021; --muted: #a5a9ad; --line: #2e3032;
+  --btn: #dfe2e5; --btn-fg: #161718; --focus: #dfe2e5;
+  --ok: #7cc4a0; --err: #f2b8b5; --note-bg: #26282a; --on-accent: #1a1612;
   --scrim: rgba(0, 0, 0, .7); --lift: 0 24px 48px -24px rgba(0, 0, 0, .95);
+  --page-fx:
+    radial-gradient(120% 70% at 88% -12%, rgba(255, 255, 255, .09), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .028) 0 1px, transparent 1px 71px, rgba(0, 0, 0, .45) 71px 72px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .022) 0 1px, transparent 1px 71px, rgba(0, 0, 0, .4) 71px 72px);
+  --band-bg: rgba(255, 255, 255, .025);
+  --door: #1d1e1f; --door-ink: #eceef0; --door-muted: #a5a9ad; --door-seam: rgba(0, 0, 0, .6);
+  --door-fx:
+    radial-gradient(110% 60% at 85% 0%, rgba(255, 255, 255, .1), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, .03) 0 1px, transparent 1px 55px, rgba(0, 0, 0, .5) 55px 56px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 55px, rgba(0, 0, 0, .45) 55px 56px);
   color-scheme: dark;
 }
 
@@ -74,7 +103,7 @@
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body {
-  margin: 0; background: var(--paper); color: var(--ink);
+  margin: 0; background-color: var(--paper); background-image: var(--page-fx); color: var(--ink);
   font: 400 1rem/1.6 var(--f-ui);
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
@@ -128,16 +157,11 @@ p { margin: 0; }
 /* Menu HP layar penuh: dua daun pintu bermotif panel dinding (lebar papan dan nat vertikal
    seperti panel Redeco) menutup dari kiri-kanan saat menu dibuka, membuka lagi saat ditutup.
    Pengecualian MOTION 1 atas permintaan owner; mati total kalau prefers-reduced-motion. */
-.mnav { --door: #5b4636; --door-ink: #f6f1ea; --door-muted: #d9cbbb; --door-seam: rgba(0, 0, 0, .35);
-  position: fixed; left: 0; right: 0; top: var(--hb, 60px); bottom: 0; z-index: 1; overflow: hidden; }
-:root[data-theme="dark"] .mnav { --door: #1c1814; --door-ink: #f2eee9; --door-muted: #b3aba2; --door-seam: rgba(0, 0, 0, .6); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mnav { --door: #1c1814; --door-ink: #f2eee9; --door-muted: #b3aba2; --door-seam: rgba(0, 0, 0, .6); } }
+.mnav { position: fixed; left: 0; right: 0; top: var(--hb, 60px); bottom: 0; z-index: 1; overflow: hidden; }
 .door {
   position: absolute; top: 0; bottom: 0; width: 50.5%;
   background-color: var(--door);
-  background-image:
-    repeating-linear-gradient(90deg, transparent 0 calc(25vw - 2px), rgba(0, 0, 0, .28) calc(25vw - 2px) 25vw),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, .035) 0 3px, transparent 3px 11px, rgba(0, 0, 0, .04) 11px 13px, transparent 13px 23px);
+  background-image: var(--door-fx);
   transition: transform .55s cubic-bezier(.7, 0, .2, 1);
 }
 .door-l { left: 0; transform: translateX(-100%); box-shadow: inset -1px 0 0 var(--door-seam); }
@@ -157,6 +181,15 @@ p { margin: 0; }
 }
 .mnav-inner a:focus-visible { outline-color: var(--door-ink); }
 .mnav-inner p { color: var(--door-muted); font-size: .9rem; }
+.mnav-foot { display: grid; gap: var(--s-4); }
+.lang-seg { display: flex; gap: var(--s-2); }
+.lang-seg button {
+  min-height: 44px; padding: 0 1rem; border-radius: var(--r); font-weight: 700; font-size: .95rem;
+  border: 1px solid rgba(255, 255, 255, .3); background: transparent; color: var(--door-ink);
+}
+.lang-seg button[aria-pressed="true"] { background: var(--door-ink); color: var(--door); border-color: var(--door-ink); }
+.lang-seg button:focus-visible { outline-color: var(--door-ink); }
+.lang-btn { font-weight: 700; letter-spacing: .02em; }
 body.menu-lock { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .door, .mnav-inner, .mnav.is-open .mnav-inner { transition: none; } }
 /* HP: tombol header jadi ikon dengan ukuran sama (44 × 44), label teks tetap terbaca screen reader. */
@@ -166,6 +199,7 @@ body.menu-lock { overflow: hidden; }
   .logo { font-size: 1.25rem; }
   .theme-label, .cart-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .icon-btn { width: 44px; padding: 0; }
+  .lang-btn { display: none; }
   .cart-btn { padding: 0 .6rem; }
 }
 @media (min-width: 821px) { .cart-btn svg { display: none; } }
@@ -190,7 +224,7 @@ body.menu-lock { overflow: hidden; }
 .sec-head h2 { display: flex; align-items: center; gap: .7rem; }
 .sec-head h2 .bars { height: .9em; }
 .sec-head h2 .bars i { width: .3em; }
-.band { background: var(--surface); border-block: 1px solid var(--line); }
+.band { background: var(--band-bg); border-block: 1px solid var(--line); }
 @media (max-width: 640px) { :root { --sec: var(--s-7); } }
 
 /* Hero */
@@ -358,18 +392,19 @@ footer .wrap { display: grid; gap: var(--s-2); }
 </head>
 <body>
 
-<div class="demo-bar"><div class="wrap">Mode demo: harga dan pembayaran masih simulasi, tidak ada transaksi nyata.</div></div>
+<div class="demo-bar"><div class="wrap" data-t="demo">Mode demo: harga dan pembayaran masih simulasi, tidak ada transaksi nyata.</div></div>
 
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="logo" href="#top" aria-label="Redeco, ke atas halaman">REDECO <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></a>
-    <nav class="nav" aria-label="Utama">
-      <a href="#bahan">Bahan</a>
-      <a href="#katalog">Katalog</a>
-      <a href="#aplikasi">Aplikasi</a>
-      <a href="#hitung">Hitung panel</a>
+    <a class="logo" href="#top" aria-label="Redeco, ke atas halaman" data-ta="aria-label:logoAria">REDECO <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span></a>
+    <nav class="nav" aria-label="Utama" data-ta="aria-label:navAria">
+      <a href="#bahan" data-t="navBahan">Bahan</a>
+      <a href="#katalog" data-t="navKatalog">Katalog</a>
+      <a href="#aplikasi" data-t="navAplikasi">Aplikasi</a>
+      <a href="#hitung" data-t="navHitung">Hitung panel</a>
     </nav>
     <div class="head-actions">
+      <button class="icon-btn lang-btn" id="langBtn" type="button" lang="en" aria-label="Switch to English">EN</button>
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="7.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 1.5a7.5 7.5 0 0 1 0 15z" fill="currentColor"/></svg><span class="theme-label" id="themeLabel">Tema</span></button>
       <button class="cart-btn" id="openCart" type="button"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3.5 6.5h13l-1 10h-11z"/><path d="M7 6.5V5a3 3 0 0 1 6 0v1.5"/></svg><span class="cart-label">Keranjang</span><span class="cart-count" id="cartCount">0</span></button>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path id="menuIco" d="M2 4.5h14M2 9h14M2 13.5h14"/></svg><span id="menuTxt">Menu</span></button>
@@ -380,12 +415,18 @@ footer .wrap { display: grid; gap: var(--s-2); }
     <div class="door door-r" aria-hidden="true"></div>
     <div class="wrap mnav-inner">
       <ul>
-        <li><a href="#bahan">Bahan</a></li>
-        <li><a href="#katalog">Katalog</a></li>
-        <li><a href="#aplikasi">Aplikasi</a></li>
-        <li><a href="#hitung">Hitung panel</a></li>
+        <li><a href="#bahan" data-t="navBahan">Bahan</a></li>
+        <li><a href="#katalog" data-t="navKatalog">Katalog</a></li>
+        <li><a href="#aplikasi" data-t="navAplikasi">Aplikasi</a></li>
+        <li><a href="#hitung" data-t="navHitung">Hitung panel</a></li>
       </ul>
-      <p>Redeco Bamboo Charcoal Wall Panel · 1,22 × 2,9 m</p>
+      <div class="mnav-foot">
+        <div class="lang-seg" role="group" aria-label="Bahasa / Language">
+          <button type="button" data-lang="id" lang="id" aria-pressed="true">Indonesia</button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+        </div>
+        <p data-t="menuFoot">Redeco Bamboo Charcoal Wall Panel · 1,22 × 2,9 m</p>
+      </div>
     </div>
   </nav>
 </header>
@@ -394,21 +435,21 @@ footer .wrap { display: grid; gap: var(--s-2); }
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <h1>Panel dinding motif kayu dan marmer yang mudah dipasang</h1>
-        <p class="lead">Redeco Bamboo Charcoal Wall Panel dibuat dari serbuk arang bambu, dilapisi film motif. Satu panel menutup 3,54 m² dinding. Ada 20 motif, barang ready.</p>
+        <h1 data-t="heroH1">Panel dinding motif kayu dan marmer yang mudah dipasang</h1>
+        <p class="lead" data-t="heroLead">Redeco Bamboo Charcoal Wall Panel dibuat dari serbuk arang bambu, dilapisi film motif. Satu panel menutup 3,54 m² dinding. Ada 20 motif, barang ready.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#katalog">Lihat 20 motif</a>
-          <a class="btn btn-ghost" href="#hitung">Hitung kebutuhan panel</a>
+          <a class="btn btn-primary" href="#katalog" data-t="heroCta1">Lihat 20 motif</a>
+          <a class="btn btn-ghost" href="#hitung" data-t="heroCta2">Hitung kebutuhan panel</a>
         </div>
         <dl class="specs-row">
-          <div><dt>Ukuran</dt><dd>1,22 × 2,9 m</dd></div>
-          <div><dt>Tebal</dt><dd>5 mm / 8 mm</dd></div>
-          <div><dt>Luas per panel</dt><dd>3,54 m²</dd></div>
+          <div><dt data-t="specSize">Ukuran</dt><dd data-t="specSizeV">1,22 × 2,9 m</dd></div>
+          <div><dt data-t="specThick">Tebal</dt><dd>5 mm / 8 mm</dd></div>
+          <div><dt data-t="specArea">Luas per panel</dt><dd data-t="specAreaV">3,54 m²</dd></div>
         </dl>
       </div>
       <figure>
-        <img src="assets/img/wg-walnut-brown.webp" alt="Ruang kerja dengan dinding panel Redeco motif Walnut Brown" width="800" height="800">
-        <figcaption>Wood Grain, motif Walnut Brown, di ruang kerja.</figcaption>
+        <img src="assets/img/wg-walnut-brown.webp" alt="Ruang kerja dengan dinding panel Redeco motif Walnut Brown" data-ta="alt:heroAlt" width="800" height="800">
+        <figcaption data-t="heroCap">Wood Grain, motif Walnut Brown, di ruang kerja.</figcaption>
       </figure>
     </div>
   </section>
@@ -416,45 +457,45 @@ footer .wrap { display: grid; gap: var(--s-2); }
   <section class="sec band" id="bahan">
     <div class="wrap">
       <div class="sec-head">
-        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Isi satu panel Redeco</h2>
-        <p class="lead">Intinya serat arang bambu. Di depan dan belakangnya ada lapisan diamond co-extruded, lalu film motif di permukaan.</p>
+        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span data-t="bahanH2">Isi satu panel Redeco</span></h2>
+        <p class="lead" data-t="bahanLead">Intinya serat arang bambu. Di depan dan belakangnya ada lapisan diamond co-extruded, lalu film motif di permukaan.</p>
       </div>
       <div class="layers-grid">
-        <img src="assets/img/layers-wood.webp" alt="Diagram penampang lima lapisan panel Redeco" loading="lazy" width="800" height="800">
+        <img src="assets/img/layers-wood.webp" alt="Diagram penampang lima lapisan panel Redeco" data-ta="alt:layersAlt" loading="lazy" width="800" height="800">
         <div>
-          <ol class="layers" aria-label="Lapisan panel, dari depan ke belakang">
-            <li>PVC Film (seri Marble: PVC/PET Film)</li>
+          <ol class="layers" aria-label="Lapisan panel, dari depan ke belakang" data-ta="aria-label:layersAria">
+            <li data-t="layer1">PVC Film (seri Marble: PVC/PET Film)</li>
             <li>PUR Hot Melt Adhesive</li>
             <li>Co-extruded Diamond Layer</li>
             <li class="core">Bamboo Charcoal Fiber Substrate</li>
             <li>Co-extruded Diamond Layer</li>
           </ol>
-          <p class="small layers-note">Urutan lapisan dari diagram produk Redeco.</p>
+          <p class="small layers-note" data-t="layersNote">Urutan lapisan dari diagram produk Redeco.</p>
         </div>
       </div>
 
       <div class="proof">
         <div>
-          <h2>Tiga hal yang diuji di foto produk</h2>
+          <h2 data-t="proofH2">Tiga hal yang diuji di foto produk</h2>
           <ol class="tested">
-            <li><span class="no">01</span><div><h3>Tahan air dan lembap</h3><p>Foto uji: air diteteskan di permukaan panel.</p></div></li>
-            <li><span class="no">02</span><div><h3>Tahan kotor dan noda</h3><p>Foto uji: noda di permukaan dilap dengan kain.</p></div></li>
-            <li><span class="no">03</span><div><h3>Tahan api</h3><p>Foto uji: api korek didekatkan ke permukaan panel.</p></div></li>
+            <li><span class="no">01</span><div><h3 data-t="t1h">Tahan air dan lembap</h3><p data-t="t1p">Foto uji: air diteteskan di permukaan panel.</p></div></li>
+            <li><span class="no">02</span><div><h3 data-t="t2h">Tahan kotor dan noda</h3><p data-t="t2p">Foto uji: noda di permukaan dilap dengan kain.</p></div></li>
+            <li><span class="no">03</span><div><h3 data-t="t3h">Tahan api</h3><p data-t="t3p">Foto uji: api korek didekatkan ke permukaan panel.</p></div></li>
           </ol>
           <div class="also">
-            <h3>Klaim lain di katalog Redeco</h3>
+            <h3 data-t="alsoH">Klaim lain di katalog Redeco</h3>
             <ul>
-              <li>Antibakteri dan anti rayap</li>
-              <li>Tahan retak</li>
+              <li data-t="also1">Antibakteri dan anti rayap</li>
+              <li data-t="also2">Tahan retak</li>
               <li>Non toxic</li>
-              <li>Mudah dipasang dan dapat ditekuk</li>
+              <li data-t="also4">Mudah dipasang dan dapat ditekuk</li>
             </ul>
-            <p class="small" style="margin-top:.75rem">Sertifikat atau hasil uji lab untuk klaim di atas: <span class="ph">[proof needed]</span></p>
+            <p class="small" style="margin-top:.75rem" data-th="alsoProof">Sertifikat atau hasil uji lab untuk klaim di atas: <span class="ph">[proof needed]</span></p>
           </div>
         </div>
         <figure>
-          <img src="assets/img/tests.webp" alt="Tiga foto uji: tetesan air, noda yang dilap, dan api korek di permukaan panel" loading="lazy" width="800" height="800">
-          <figcaption class="small">Foto uji dari materi produk Redeco.</figcaption>
+          <img src="assets/img/tests.webp" alt="Tiga foto uji: tetesan air, noda yang dilap, dan api korek di permukaan panel" data-ta="alt:testsAlt" loading="lazy" width="800" height="800">
+          <figcaption class="small" data-t="testsCap">Foto uji dari materi produk Redeco.</figcaption>
         </figure>
       </div>
     </div>
@@ -463,24 +504,24 @@ footer .wrap { display: grid; gap: var(--s-2); }
   <section class="sec" id="katalog">
     <div class="wrap">
       <div class="sec-head">
-        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Pilih motif</h2>
-        <p class="lead">Harga per panel 1,22 × 2,9 m. Seri Pure Color dan Marble termasuk gratis desain.</p>
+        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span data-t="katH2">Pilih motif</span></h2>
+        <p class="lead" data-t="katLead">Harga per panel 1,22 × 2,9 m. Seri Pure Color dan Marble termasuk gratis desain.</p>
       </div>
-      <div class="tabs" role="group" aria-label="Filter seri" id="tabs"></div>
+      <div class="tabs" role="group" aria-label="Filter seri" data-ta="aria-label:tabsAria" id="tabs"></div>
       <div class="grid" id="grid"></div>
     </div>
   </section>
 
   <section class="sec band" id="aplikasi">
     <div class="wrap usage">
-      <img src="assets/img/usage.webp" alt="Panel Redeco di lobi kantor, koridor hotel, ruang tamu, dan ruang kantor" loading="lazy" width="800" height="800">
+      <img src="assets/img/usage.webp" alt="Panel Redeco di lobi kantor, koridor hotel, ruang tamu, dan ruang kantor" data-ta="alt:usageAlt" loading="lazy" width="800" height="800">
       <div>
-        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Dipakai di mana saja</h2>
+        <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span data-t="appH2">Dipakai di mana saja</span></h2>
         <ul>
-          <li>Lobi dan ruang kantor</li>
-          <li>Koridor hotel</li>
-          <li>Ruang tamu, kamar tidur, dan dinding TV</li>
-          <li>Ruang komersial</li>
+          <li data-t="app1">Lobi dan ruang kantor</li>
+          <li data-t="app2">Koridor hotel</li>
+          <li data-t="app3">Ruang tamu, kamar tidur, dan dinding TV</li>
+          <li data-t="app4">Ruang komersial</li>
         </ul>
       </div>
     </div>
@@ -490,26 +531,24 @@ footer .wrap { display: grid; gap: var(--s-2); }
     <div class="wrap">
       <div>
         <div class="sec-head">
-          <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Hitung kebutuhan panel</h2>
-          <p class="lead">Masukkan ukuran dinding. Hasilnya jumlah panel dan perkiraan harga sebelum ongkir.</p>
+          <h2><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span data-t="calcH2">Hitung kebutuhan panel</span></h2>
+          <p class="lead" data-t="calcLead">Masukkan ukuran dinding. Hasilnya jumlah panel dan perkiraan harga sebelum ongkir.</p>
         </div>
         <div class="facts">
-          <div><h3>Pengiriman</h3><p class="small">Barang ready. PO 3 hari hanya untuk atur pengiriman.</p></div>
-          <div><h3>Packing kayu</h3><p class="small">Untuk pembelian di bawah 7 panel, pilih packing kayu saat checkout. Tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.</p></div>
-          <div><h3>Konsultasi ukuran</h3><p class="small">WhatsApp Redeco: <span class="ph">[nomor WhatsApp Redeco]</span></p></div>
+          <div><h3 data-t="f1h">Pengiriman</h3><p class="small" data-t="f1p">Barang ready. PO 3 hari hanya untuk atur pengiriman.</p></div>
+          <div><h3 data-t="f2h">Packing kayu</h3><p class="small" data-t="f2p">Untuk pembelian di bawah 7 panel, pilih packing kayu saat checkout. Tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.</p></div>
+          <div><h3 data-t="f3h">Konsultasi ukuran</h3><p class="small" data-th="f3p">WhatsApp Redeco: <span class="ph">[nomor WhatsApp Redeco]</span></p></div>
         </div>
       </div>
       <form class="calc-card" id="calcForm" novalidate>
         <div class="fields">
-          <label class="f" for="cW">Lebar dinding (m)<input id="cW" name="w" type="number" min="0.1" step="0.01" inputmode="decimal" placeholder="contoh 3,5"></label>
-          <label class="f" for="cH">Tinggi dinding (m)<input id="cH" name="h" type="number" min="0.1" step="0.01" inputmode="decimal" placeholder="contoh 2,8"></label>
+          <label class="f" for="cW"><span data-t="calcW">Lebar dinding (m)</span><input id="cW" name="w" type="number" min="0.1" step="0.01" inputmode="decimal" placeholder="contoh 3,5" data-ta="placeholder:calcWph"></label>
+          <label class="f" for="cH"><span data-t="calcHt">Tinggi dinding (m)</span><input id="cH" name="h" type="number" min="0.1" step="0.01" inputmode="decimal" placeholder="contoh 2,8" data-ta="placeholder:calcHph"></label>
         </div>
-        <label class="f" for="cS">Seri<select id="cS" name="s"></select></label>
-        <button class="btn btn-primary" type="submit">Hitung</button>
+        <label class="f" for="cS"><span data-t="calcS">Seri</span><select id="cS" name="s"></select></label>
+        <button class="btn btn-primary" type="submit" data-t="calcBtn">Hitung</button>
         <p class="err" id="calcErr" role="alert" hidden></p>
-        <div class="result" id="calcRes" aria-live="polite">
-          <p class="small">Hasil muncul di sini. Satu panel menutup 3,54 m² (1,22 × 2,9 m).</p>
-        </div>
+        <div class="result" id="calcRes" aria-live="polite"></div>
       </form>
     </div>
   </section>
@@ -517,8 +556,8 @@ footer .wrap { display: grid; gap: var(--s-2); }
 
 <footer>
   <div class="wrap">
-    <span>Redeco Bamboo Charcoal Wall Panel. Pembayaran diproses oleh Midtrans.</span>
-    <span>Syarat dan ketentuan serta kebijakan privasi: <span class="ph">[menyusul sebelum toko live]</span></span>
+    <span data-t="foot1">Redeco Bamboo Charcoal Wall Panel. Pembayaran diproses oleh Midtrans.</span>
+    <span data-th="foot2">Syarat dan ketentuan serta kebijakan privasi: <span class="ph">[menyusul sebelum toko live]</span></span>
   </div>
 </footer>
 
@@ -531,7 +570,7 @@ footer .wrap { display: grid; gap: var(--s-2); }
 </div>
 
 <div class="snap-wrap" id="snap" hidden>
-  <div class="snap" role="dialog" aria-modal="true" aria-label="Pembayaran Midtrans" id="snapBox"></div>
+  <div class="snap" role="dialog" aria-modal="true" aria-label="Pembayaran Midtrans" data-ta="aria-label:snapAria" id="snapBox"></div>
 </div>
 
 <div class="toast" id="toast" role="status" hidden></div>
@@ -575,8 +614,169 @@ const PRODUCTS = [
 
 const $ = (s, el = document) => el.querySelector(s);
 const X_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 3l10 10M13 3L3 13"/></svg>';
+/* Bahasa. Terjemahan Inggris mengikuti isi teks Indonesia, tanpa klaim tambahan. */
+const pl = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+const I18N = {
+  id: {
+    demo: "Mode demo: harga dan pembayaran masih simulasi, tidak ada transaksi nyata.",
+    logoAria: "Redeco, ke atas halaman", navAria: "Utama",
+    navBahan: "Bahan", navKatalog: "Katalog", navAplikasi: "Aplikasi", navHitung: "Hitung panel",
+    menuFoot: "Redeco Bamboo Charcoal Wall Panel · 1,22 × 2,9 m",
+    heroH1: "Panel dinding motif kayu dan marmer yang mudah dipasang",
+    heroLead: "Redeco Bamboo Charcoal Wall Panel dibuat dari serbuk arang bambu, dilapisi film motif. Satu panel menutup 3,54 m² dinding. Ada 20 motif, barang ready.",
+    heroCta1: "Lihat 20 motif", heroCta2: "Hitung kebutuhan panel",
+    specSize: "Ukuran", specSizeV: "1,22 × 2,9 m", specThick: "Tebal", specArea: "Luas per panel", specAreaV: "3,54 m²",
+    heroAlt: "Ruang kerja dengan dinding panel Redeco motif Walnut Brown",
+    heroCap: "Wood Grain, motif Walnut Brown, di ruang kerja.",
+    bahanH2: "Isi satu panel Redeco",
+    bahanLead: "Intinya serat arang bambu. Di depan dan belakangnya ada lapisan diamond co-extruded, lalu film motif di permukaan.",
+    layersAlt: "Diagram penampang lima lapisan panel Redeco", layersAria: "Lapisan panel, dari depan ke belakang",
+    layer1: "PVC Film (seri Marble: PVC/PET Film)", layersNote: "Urutan lapisan dari diagram produk Redeco.",
+    proofH2: "Tiga hal yang diuji di foto produk",
+    t1h: "Tahan air dan lembap", t1p: "Foto uji: air diteteskan di permukaan panel.",
+    t2h: "Tahan kotor dan noda", t2p: "Foto uji: noda di permukaan dilap dengan kain.",
+    t3h: "Tahan api", t3p: "Foto uji: api korek didekatkan ke permukaan panel.",
+    alsoH: "Klaim lain di katalog Redeco", also1: "Antibakteri dan anti rayap", also2: "Tahan retak", also4: "Mudah dipasang dan dapat ditekuk",
+    alsoProof: 'Sertifikat atau hasil uji lab untuk klaim di atas: <span class="ph">[proof needed]</span>',
+    testsAlt: "Tiga foto uji: tetesan air, noda yang dilap, dan api korek di permukaan panel", testsCap: "Foto uji dari materi produk Redeco.",
+    katH2: "Pilih motif", katLead: "Harga per panel 1,22 × 2,9 m. Seri Pure Color dan Marble termasuk gratis desain.", tabsAria: "Filter seri",
+    usageAlt: "Panel Redeco di lobi kantor, koridor hotel, ruang tamu, dan ruang kantor",
+    appH2: "Dipakai di mana saja", app1: "Lobi dan ruang kantor", app2: "Koridor hotel", app3: "Ruang tamu, kamar tidur, dan dinding TV", app4: "Ruang komersial",
+    calcH2: "Hitung kebutuhan panel", calcLead: "Masukkan ukuran dinding. Hasilnya jumlah panel dan perkiraan harga sebelum ongkir.",
+    f1h: "Pengiriman", f1p: "Barang ready. PO 3 hari hanya untuk atur pengiriman.",
+    f2h: "Packing kayu", f2p: "Untuk pembelian di bawah 7 panel, pilih packing kayu saat checkout. Tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.",
+    f3h: "Konsultasi ukuran", f3p: 'WhatsApp Redeco: <span class="ph">[nomor WhatsApp Redeco]</span>',
+    calcW: "Lebar dinding (m)", calcHt: "Tinggi dinding (m)", calcWph: "contoh 3,5", calcHph: "contoh 2,8", calcS: "Seri", calcBtn: "Hitung",
+    calcEmpty: "Hasil muncul di sini. Satu panel menutup 3,54 m² (1,22 × 2,9 m).",
+    calcErr: "Isi lebar dan tinggi dinding dalam meter, contoh 3,5.",
+    calcWall: (w, h, a) => `Dinding ${w} × ${h} m (${a} m²)`,
+    panels: n => `${n} panel`,
+    calcDetail: (c, r, s, price, pack) => `${c} panel berdampingan × ${r} baris. Perkiraan ${s}: <b>${price}</b> sebelum ongkir${pack ? " dan packing kayu" : ""}.`,
+    calcPick: s => `Pilih motif ${s}`,
+    foot1: "Redeco Bamboo Charcoal Wall Panel. Pembayaran diproses oleh Midtrans.",
+    foot2: 'Syarat dan ketentuan serta kebijakan privasi: <span class="ph">[menyusul sebelum toko live]</span>',
+    snapAria: "Pembayaran Midtrans",
+    themeToLight: "Mode terang", themeToDark: "Mode malam", themeAriaLight: "Ganti ke mode terang", themeAriaDark: "Ganti ke mode malam",
+    menu: "Menu", close: "Tutup", cart: "Keranjang",
+    all: "Semua", free: "Gratis desain", tmp: "nama sementara", tmpLong: "nama motif sementara", perPanel: "/ panel",
+    cardAria: (n, s, p) => `${n}, ${s}, ${p} per panel`,
+    closePd: "Tutup detail produk", photo: n => `Foto ${n}`, freeNote: "Seri ini termasuk gratis desain.",
+    thick: "Tebal", qty: "Jumlah panel", minus: "Kurangi satu", plus: "Tambah satu",
+    covers: a => `Menutup ${a} m² dinding.`,
+    packNote: (min, p) => `Di bawah ${min} panel, pilih packing kayu saat checkout (+${p}).`,
+    addBtn: (q, p) => `Masukkan ${q} panel ke keranjang · ${p}`,
+    size: "Ukuran", surface: "Permukaan", core: "Inti", stock: "Stok", stockV: "Ready, PO 3 hari untuk atur pengiriman",
+    added: (n, q) => `${n}, ${q} panel, masuk keranjang`,
+    seriesOpt: (s, p) => `${s} (${p} / panel)`,
+    cartTitle: "Keranjang", closeCart: "Tutup keranjang", toCheckout: "Isi alamat pengiriman",
+    empty: "Keranjang masih kosong. Pilih motif di katalog, lalu tentukan jumlah panel.", openCatalog: "Buka katalog",
+    sub: n => `Subtotal (${n} panel)`, packing: "Packing kayu", no: "Tidak", shipping: "Ongkir (perkiraan demo)", total: "Total",
+    minusItem: n => `Kurangi ${n}`, plusItem: n => `Tambah ${n}`, qtyItem: n => `Jumlah panel ${n}`, remove: "Hapus",
+    removed: "Item dihapus dari keranjang",
+    coTitle: "Checkout", closeCo: "Tutup checkout", addrH: "Alamat pengiriman",
+    fName: "Nama penerima", fNamePh: "Nama sesuai alamat", fPhone: "Nomor WhatsApp", fEmail: "Email",
+    fAddr: "Alamat lengkap", fAddrPh: "Jalan, nomor, RT/RW, kelurahan", fCity: "Kota atau kabupaten", fZip: "Kode pos",
+    packLabel: p => `Packing kayu (+${p})`,
+    packWarn: (n, min) => `Pesanan Anda ${n} panel. Di bawah ${min} panel tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.`,
+    packOpt: min => `Pesanan ${min} panel ke atas, packing kayu opsional.`,
+    summary: "Ringkasan pesanan", pay: p => `Bayar ${p} lewat Midtrans`, backCart: "Ubah isi keranjang",
+    methodsLine: "Metode di Midtrans: QRIS, virtual account bank, GoPay, ShopeePay, kartu kredit/debit.",
+    missing: list => `Lengkapi ${list}.`, emailErr: "Format email belum benar. Contoh: nama@email.com",
+    sim: "simulasi", loading: "Menyiapkan halaman pembayaran Midtrans...", choose: "Pilih cara bayar", cancelPay: "Batalkan pembayaran",
+    hQris: "Scan dengan e-wallet atau m-banking", hVa: "Transfer ke nomor VA", hMandiri: "Bayar lewat Livin' atau ATM",
+    ccName: "Kartu kredit atau debit", qrAria: "Kode QR simulasi", qrNote: "Kode QR simulasi, tidak bisa dipindai.",
+    ccNo: "Nomor kartu", ccNoPh: "Nomor kartu tes sandbox", ccExp: "Berlaku sampai", ccExpPh: "BB/TT", ccCvvPh: "3 digit",
+    vaLabel: "Nomor virtual account (simulasi):", demoNote: "Demo ini tidak memproses uang. Pilih hasil yang mau disimulasikan:",
+    simOk: "Simulasikan pembayaran berhasil", simFail: "Simulasikan pembayaran gagal", changeMethod: "Ganti cara bayar",
+    failH: "Pembayaran gagal", failP: "Bank menolak transaksi (simulasi). Pesanan belum dibuat dan keranjang tetap tersimpan.",
+    tryOther: "Coba cara bayar lain", backCo: "Kembali ke checkout",
+    okH: "Pembayaran diterima", okP: id => `Order <b>${id}</b> tercatat (simulasi). Di toko asli, status ini dikonfirmasi dari notifikasi Midtrans.`,
+    done: "Selesai", cancelled: "Pembayaran dibatalkan. Keranjang masih tersimpan.", orderDone: id => `Order ${id} tercatat`,
+    langBtn: "EN", langAria: "Switch to English", langBtnLang: "en",
+  },
+  en: {
+    demo: "Demo mode: prices and payment are simulated, no real transactions.",
+    logoAria: "Redeco, back to top", navAria: "Main",
+    navBahan: "Material", navKatalog: "Catalog", navAplikasi: "Uses", navHitung: "Panel calculator",
+    menuFoot: "Redeco Bamboo Charcoal Wall Panel · 1.22 × 2.9 m",
+    heroH1: "Wood and marble pattern wall panels that are easy to install",
+    heroLead: "Redeco Bamboo Charcoal Wall Panel is made from bamboo charcoal powder with a printed film surface. One panel covers 3.54 m² of wall. 20 patterns, in stock.",
+    heroCta1: "See 20 patterns", heroCta2: "Calculate panels needed",
+    specSize: "Size", specSizeV: "1.22 × 2.9 m", specThick: "Thickness", specArea: "Area per panel", specAreaV: "3.54 m²",
+    heroAlt: "Office with Redeco wall panels in Walnut Brown",
+    heroCap: "Wood Grain, Walnut Brown pattern, in an office.",
+    bahanH2: "Inside a Redeco panel",
+    bahanLead: "The core is bamboo charcoal fiber. Co-extruded diamond layers sit on the front and back, with a printed film on the surface.",
+    layersAlt: "Cross-section diagram of the five layers in a Redeco panel", layersAria: "Panel layers, front to back",
+    layer1: "PVC Film (Marble series: PVC/PET Film)", layersNote: "Layer order from the Redeco product diagram.",
+    proofH2: "Three things tested in the product photos",
+    t1h: "Water and moisture resistant", t1p: "Test photo: water dripped onto the panel surface.",
+    t2h: "Dirt and stain resistant", t2p: "Test photo: a stain on the surface wiped off with a cloth.",
+    t3h: "Fire resistant", t3p: "Test photo: a lighter flame held to the panel surface.",
+    alsoH: "Other claims in the Redeco catalog", also1: "Antibacterial and termite resistant", also2: "Crack resistant", also4: "Easy to install and bendable",
+    alsoProof: 'Certificates or lab test results for the claims above: <span class="ph">[proof needed]</span>',
+    testsAlt: "Three test photos: water drops, a stain being wiped, and a lighter flame on the panel surface", testsCap: "Test photos from Redeco product material.",
+    katH2: "Choose a pattern", katLead: "Price per 1.22 × 2.9 m panel. Pure Color and Marble series include free design.", tabsAria: "Filter by series",
+    usageAlt: "Redeco panels in an office lobby, hotel hallway, living room, and office",
+    appH2: "Where it is used", app1: "Office lobbies and offices", app2: "Hotel hallways", app3: "Living rooms, bedrooms, and TV walls", app4: "Commercial spaces",
+    calcH2: "Calculate panels needed", calcLead: "Enter your wall size. You get the number of panels and an estimated price before shipping.",
+    f1h: "Shipping", f1p: "In stock. The 3-day PO is only to arrange shipping.",
+    f2h: "Wooden crate", f2p: "For orders under 7 panels, choose a wooden crate at checkout. Without one, damage in transit is not Redeco's responsibility.",
+    f3h: "Size consultation", f3p: 'Redeco WhatsApp: <span class="ph">[Redeco WhatsApp number]</span>',
+    calcW: "Wall width (m)", calcHt: "Wall height (m)", calcWph: "e.g. 3.5", calcHph: "e.g. 2.8", calcS: "Series", calcBtn: "Calculate",
+    calcEmpty: "Results appear here. One panel covers 3.54 m² (1.22 × 2.9 m).",
+    calcErr: "Enter the wall width and height in meters, e.g. 3.5.",
+    calcWall: (w, h, a) => `Wall ${w} × ${h} m (${a} m²)`,
+    panels: n => pl(n, "panel"),
+    calcDetail: (c, r, s, price, pack) => `${pl(c, "panel")} side by side × ${pl(r, "row")}. ${s} estimate: <b>${price}</b> before shipping${pack ? " and wooden crate" : ""}.`,
+    calcPick: s => `Choose a ${s} pattern`,
+    foot1: "Redeco Bamboo Charcoal Wall Panel. Payments processed by Midtrans.",
+    foot2: 'Terms and conditions and privacy policy: <span class="ph">[coming before the store goes live]</span>',
+    snapAria: "Midtrans payment",
+    themeToLight: "Light mode", themeToDark: "Night mode", themeAriaLight: "Switch to light mode", themeAriaDark: "Switch to night mode",
+    menu: "Menu", close: "Close", cart: "Cart",
+    all: "All", free: "Free design", tmp: "temporary name", tmpLong: "temporary pattern name", perPanel: "/ panel",
+    cardAria: (n, s, p) => `${n}, ${s}, ${p} per panel`,
+    closePd: "Close product details", photo: n => `Photo ${n}`, freeNote: "This series includes free design.",
+    thick: "Thickness", qty: "Number of panels", minus: "Remove one", plus: "Add one",
+    covers: a => `Covers ${a} m² of wall.`,
+    packNote: (min, p) => `Under ${min} panels, choose a wooden crate at checkout (+${p}).`,
+    addBtn: (q, p) => `Add ${pl(q, "panel")} to cart · ${p}`,
+    size: "Size", surface: "Surface", core: "Core", stock: "Stock", stockV: "In stock, 3-day PO to arrange shipping",
+    added: (n, q) => `${n}, ${pl(q, "panel")}, added to cart`,
+    seriesOpt: (s, p) => `${s} (${p} / panel)`,
+    cartTitle: "Cart", closeCart: "Close cart", toCheckout: "Enter shipping address",
+    empty: "Your cart is empty. Choose a pattern in the catalog, then set the number of panels.", openCatalog: "Open catalog",
+    sub: n => `Subtotal (${pl(n, "panel")})`, packing: "Wooden crate", no: "No", shipping: "Shipping (demo estimate)", total: "Total",
+    minusItem: n => `Remove one ${n}`, plusItem: n => `Add one ${n}`, qtyItem: n => `Number of ${n} panels`, remove: "Remove",
+    removed: "Item removed from cart",
+    coTitle: "Checkout", closeCo: "Close checkout", addrH: "Shipping address",
+    fName: "Recipient name", fNamePh: "Name at this address", fPhone: "WhatsApp number", fEmail: "Email",
+    fAddr: "Full address", fAddrPh: "Street, number, RT/RW, district", fCity: "City or regency", fZip: "Postal code",
+    packLabel: p => `Wooden crate (+${p})`,
+    packWarn: (n, min) => `Your order is ${pl(n, "panel")}. Under ${min} panels without a wooden crate, damage in transit is not Redeco's responsibility.`,
+    packOpt: min => `Orders of ${min} panels or more: wooden crate is optional.`,
+    summary: "Order summary", pay: p => `Pay ${p} with Midtrans`, backCart: "Edit cart",
+    methodsLine: "Midtrans methods: QRIS, bank virtual account, GoPay, ShopeePay, credit/debit card.",
+    missing: list => `Please fill in ${list}.`, emailErr: "The email format is not valid. Example: name@email.com",
+    sim: "simulation", loading: "Preparing the Midtrans payment page...", choose: "Choose a payment method", cancelPay: "Cancel payment",
+    hQris: "Scan with an e-wallet or mobile banking", hVa: "Transfer to the VA number", hMandiri: "Pay via Livin' or ATM",
+    ccName: "Credit or debit card", qrAria: "Simulated QR code", qrNote: "Simulated QR code, cannot be scanned.",
+    ccNo: "Card number", ccNoPh: "Sandbox test card number", ccExp: "Valid until", ccExpPh: "MM/YY", ccCvvPh: "3 digits",
+    vaLabel: "Virtual account number (simulated):", demoNote: "This demo does not process money. Choose the result to simulate:",
+    simOk: "Simulate successful payment", simFail: "Simulate failed payment", changeMethod: "Change payment method",
+    failH: "Payment failed", failP: "The bank declined the transaction (simulated). No order was created and your cart is still saved.",
+    tryOther: "Try another payment method", backCo: "Back to checkout",
+    okH: "Payment received", okP: id => `Order <b>${id}</b> recorded (simulated). In the real store, this status is confirmed by the Midtrans notification.`,
+    done: "Done", cancelled: "Payment cancelled. Your cart is still saved.", orderDone: id => `Order ${id} recorded`,
+    langBtn: "ID", langAria: "Ganti ke Bahasa Indonesia", langBtnLang: "id",
+  },
+};
+let lang = "id";
+const t = (k, ...a) => { const v = I18N[lang][k] ?? I18N.id[k]; return typeof v === "function" ? v(...a) : v; };
+const loc = () => (lang === "en" ? "en-US" : "id-ID");
 const rp = n => "Rp" + Math.round(n).toLocaleString("id-ID");
-const m2 = n => n.toLocaleString("id-ID", { maximumFractionDigits: 2 });
+const m2 = n => n.toLocaleString(loc(), { maximumFractionDigits: 2 });
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const unitPrice = (p, t) => SERIES[p.series].price + (t === 8 ? THICK_8_EXTRA : 0);
 const store = {
@@ -584,18 +784,18 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 function toast(msg) {
-  const t = $("#toast"); t.textContent = msg; t.hidden = false;
-  clearTimeout(toast.h); toast.h = setTimeout(() => (t.hidden = true), 2600);
+  const box = $("#toast"); box.textContent = msg; box.hidden = false;
+  clearTimeout(toast.h); toast.h = setTimeout(() => (box.hidden = true), 2600);
 }
 
 /* Tema: ikut setelan HP sampai pengunjung memilih sendiri. Label tombol = tujuan klik. */
 const sysDark = matchMedia("(prefers-color-scheme: dark)");
 const isDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : sysDark.matches;
-function applyTheme(t) {
-  if (t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+function applyTheme(mode) {
+  if (mode) document.documentElement.dataset.theme = mode; else delete document.documentElement.dataset.theme;
   const dark = isDark();
-  $("#themeLabel").textContent = dark ? "Mode terang" : "Mode malam";
-  $("#themeBtn").setAttribute("aria-label", dark ? "Ganti ke mode terang" : "Ganti ke mode malam");
+  $("#themeLabel").textContent = dark ? t("themeToLight") : t("themeToDark");
+  $("#themeBtn").setAttribute("aria-label", dark ? t("themeAriaLight") : t("themeAriaDark"));
 }
 $("#themeBtn").addEventListener("click", () => {
   const next = isDark() ? "light" : "dark";
@@ -612,7 +812,7 @@ function setMenu(open) {
   if (open === menuOpen) return;
   menuOpen = open;
   menuBtn.setAttribute("aria-expanded", open);
-  $("#menuTxt").textContent = open ? "Tutup" : "Menu";
+  $("#menuTxt").textContent = open ? t("close") : t("menu");
   $("#menuIco").setAttribute("d", open ? "M4 4l10 10M14 4L4 14" : "M2 4.5h14M2 9h14M2 13.5h14");
   document.body.classList.toggle("menu-lock", open);
   document.querySelectorAll("main, footer, .demo-bar").forEach(el => (el.inert = open));
@@ -633,21 +833,21 @@ matchMedia("(min-width: 821px)").addEventListener("change", e => { if (e.matches
 /* Katalog */
 let filter = "all";
 function renderTabs() {
-  const opts = [["all", "Semua", PRODUCTS.length], ...Object.entries(SERIES).map(([k, s]) => [k, s.name, PRODUCTS.filter(p => p.series === k).length])];
+  const opts = [["all", t("all"), PRODUCTS.length], ...Object.entries(SERIES).map(([k, s]) => [k, s.name, PRODUCTS.filter(p => p.series === k).length])];
   $("#tabs").innerHTML = opts.map(([k, n, c]) =>
     `<button class="tab" type="button" data-f="${k}" aria-pressed="${filter === k}">${n}<span>(${c})</span></button>`).join("");
 }
 function renderGrid() {
   const list = PRODUCTS.filter(p => filter === "all" || p.series === filter);
   $("#grid").innerHTML = list.map(p => `
-    <button class="card" type="button" data-id="${p.id}" aria-label="${esc(p.name)}, ${SERIES[p.series].name}, ${rp(SERIES[p.series].price)} per panel">
+    <button class="card" type="button" data-id="${p.id}" aria-label="${esc(t("cardAria", p.name, SERIES[p.series].name, rp(SERIES[p.series].price)))}">
       <div class="card-img">
         <img src="${p.img}" alt="" loading="lazy" width="800" height="800">
-        ${SERIES[p.series].free ? '<span class="tag">Gratis desain</span>' : ""}
+        ${SERIES[p.series].free ? `<span class="tag">${t("free")}</span>` : ""}
       </div>
       <div class="card-row"><h3>${esc(p.name)}</h3></div>
-      <div class="meta">${SERIES[p.series].name} · ${p.code}${p.tmp ? " · nama sementara" : ""}</div>
-      <div class="price">${rp(SERIES[p.series].price)} <small>/ panel</small></div>
+      <div class="meta">${SERIES[p.series].name} · ${p.code}${p.tmp ? ` · ${t("tmp")}` : ""}</div>
+      <div class="price">${rp(SERIES[p.series].price)} <small>${t("perPanel")}</small></div>
     </button>`).join("");
 }
 $("#tabs").addEventListener("click", e => {
@@ -667,44 +867,44 @@ function renderProduct() {
   const { p, thick, qty, img } = pd, s = SERIES[p.series];
   const imgs = [p.img, ...s.img.map(n => `assets/img/${n}.webp`), "assets/img/tests.webp", "assets/img/usage.webp"];
   $("#pdPanel").innerHTML = `
-    <div class="panel-head"><span class="small">${s.name} · ${p.code}${p.tmp ? " · nama motif sementara" : ""}</span><button class="x" type="button" data-close aria-label="Tutup detail produk">${X_ICON}</button></div>
+    <div class="panel-head"><span class="small">${s.name} · ${p.code}${p.tmp ? ` · ${t("tmpLong")}` : ""}</span><button class="x" type="button" data-close aria-label="${t("closePd")}">${X_ICON}</button></div>
     <div class="pd">
       <div class="pd-gallery">
         <img src="${img}" alt="${esc(p.name)}" width="800" height="800">
-        <div class="thumbs">${imgs.map((i, n) => `<button type="button" data-img="${i}" aria-pressed="${i === img}" aria-label="Foto ${n + 1}"><img src="${i}" alt="" loading="lazy"></button>`).join("")}</div>
+        <div class="thumbs">${imgs.map((i, n) => `<button type="button" data-img="${i}" aria-pressed="${i === img}" aria-label="${t("photo", n + 1)}"><img src="${i}" alt="" loading="lazy"></button>`).join("")}</div>
       </div>
       <div class="pd-info">
         <h2 id="pdTitle">${esc(p.name)}</h2>
-        <div class="pd-price">${rp(unitPrice(p, thick))} <small>/ panel</small></div>
-        ${s.free ? '<div class="note">Seri ini termasuk gratis desain.</div>' : ""}
-        <div class="field"><span class="lbl" id="thickLbl">Tebal</span>
-          <div class="seg" role="group" aria-labelledby="thickLbl">${s.thick.map(t => `<button type="button" data-thick="${t}" aria-pressed="${t === thick}">${t} mm</button>`).join("")}</div>
+        <div class="pd-price">${rp(unitPrice(p, thick))} <small>${t("perPanel")}</small></div>
+        ${s.free ? `<div class="note">${t("freeNote")}</div>` : ""}
+        <div class="field"><span class="lbl" id="thickLbl">${t("thick")}</span>
+          <div class="seg" role="group" aria-labelledby="thickLbl">${s.thick.map(mm => `<button type="button" data-thick="${mm}" aria-pressed="${mm === thick}">${mm} mm</button>`).join("")}</div>
         </div>
-        <div class="field"><label class="lbl" for="pdQty">Jumlah panel</label>
-          <div class="qty"><button type="button" data-q="-1" aria-label="Kurangi satu">−</button><input id="pdQty" type="number" min="1" value="${qty}"><button type="button" data-q="1" aria-label="Tambah satu">+</button></div>
-          <span class="small">Menutup ${m2(qty * PANEL_M2)} m² dinding.</span>
+        <div class="field"><label class="lbl" for="pdQty">${t("qty")}</label>
+          <div class="qty"><button type="button" data-q="-1" aria-label="${t("minus")}">−</button><input id="pdQty" type="number" min="1" value="${qty}"><button type="button" data-q="1" aria-label="${t("plus")}">+</button></div>
+          <span class="small">${t("covers", m2(qty * PANEL_M2))}</span>
         </div>
-        ${qty < PACKING_MIN ? `<div class="note">Di bawah ${PACKING_MIN} panel, pilih packing kayu saat checkout (+${rp(WOOD_PACKING)}).</div>` : ""}
-        <button class="btn btn-primary btn-block" type="button" id="addCart">Masukkan ${qty} panel ke keranjang · ${rp(unitPrice(p, thick) * qty)}</button>
+        ${qty < PACKING_MIN ? `<div class="note">${t("packNote", PACKING_MIN, rp(WOOD_PACKING))}</div>` : ""}
+        <button class="btn btn-primary btn-block" type="button" id="addCart">${t("addBtn", qty, rp(unitPrice(p, thick) * qty))}</button>
         <dl class="specs">
-          <dt>Ukuran</dt><dd>1,22 × 2,9 m</dd>
-          <dt>Tebal</dt><dd>${s.thick.join(" / ")} mm</dd>
-          <dt>Permukaan</dt><dd>${s.film}</dd>
-          <dt>Inti</dt><dd>Bamboo charcoal fiber</dd>
-          <dt>Stok</dt><dd>Ready, PO 3 hari untuk atur pengiriman</dd>
+          <dt>${t("size")}</dt><dd>${t("specSizeV")}</dd>
+          <dt>${t("thick")}</dt><dd>${s.thick.join(" / ")} mm</dd>
+          <dt>${t("surface")}</dt><dd>${s.film}</dd>
+          <dt>${t("core")}</dt><dd>Bamboo charcoal fiber</dd>
+          <dt>${t("stock")}</dt><dd>${t("stockV")}</dd>
         </dl>
       </div>
     </div>`;
 }
 $("#pdPanel").addEventListener("click", e => {
-  const t = e.target;
-  if (t.closest("[data-close]")) return closeOverlays();
-  const im = t.closest("[data-img]"); if (im) { pd.img = im.dataset.img; renderProduct(); return $(`[data-img="${pd.img}"]`).focus(); }
-  const th = t.closest("[data-thick]"); if (th) { pd.thick = +th.dataset.thick; renderProduct(); return $(`[data-thick="${pd.thick}"]`).focus(); }
-  const q = t.closest("[data-q]"); if (q) { pd.qty = Math.max(1, pd.qty + +q.dataset.q); renderProduct(); return $(`[data-q="${q.dataset.q}"]`).focus(); }
-  if (t.closest("#addCart")) {
+  const el = e.target;
+  if (el.closest("[data-close]")) return closeOverlays();
+  const im = el.closest("[data-img]"); if (im) { pd.img = im.dataset.img; renderProduct(); return $(`[data-img="${pd.img}"]`).focus(); }
+  const th = el.closest("[data-thick]"); if (th) { pd.thick = +th.dataset.thick; renderProduct(); return $(`[data-thick="${pd.thick}"]`).focus(); }
+  const q = el.closest("[data-q]"); if (q) { pd.qty = Math.max(1, pd.qty + +q.dataset.q); renderProduct(); return $(`[data-q="${q.dataset.q}"]`).focus(); }
+  if (el.closest("#addCart")) {
     addToCart(pd.p.id, pd.thick, pd.qty);
-    closeOverlays(); toast(`${pd.p.name}, ${pd.qty} panel, masuk keranjang`);
+    closeOverlays(); toast(t("added", pd.p.name, pd.qty));
   }
 });
 $("#pdPanel").addEventListener("change", e => {
@@ -712,22 +912,32 @@ $("#pdPanel").addEventListener("change", e => {
 });
 
 /* Kalkulator */
-$("#cS").innerHTML = Object.entries(SERIES).map(([k, s]) => `<option value="${k}">${s.name} (${rp(s.price)} / panel)</option>`).join("");
+let calc = null;
+function renderCalcOptions() {
+  const cur = $("#cS").value || "wood";
+  $("#cS").innerHTML = Object.entries(SERIES).map(([k, s]) => `<option value="${k}"${k === cur ? " selected" : ""}>${t("seriesOpt", s.name, rp(s.price))}</option>`).join("");
+}
+function renderCalc() {
+  if (!calc) { $("#calcRes").innerHTML = `<p class="small">${t("calcEmpty")}</p>`; return; }
+  const { w, h, key } = calc, s = SERIES[key];
+  const cols = Math.ceil(w / PANEL_W), rows = Math.ceil(h / PANEL_H), n = cols * rows;
+  $("#calcRes").innerHTML = `
+    <span class="small">${t("calcWall", m2(w), m2(h), m2(w * h))}</span>
+    <b class="big">${t("panels", n)}</b>
+    <span class="small">${t("calcDetail", cols, rows, s.name, rp(n * s.price), n < PACKING_MIN)}</span>
+    <a class="link" href="#katalog" data-series="${key}">${t("calcPick", s.name)}</a>`;
+}
 $("#calcForm").addEventListener("submit", e => {
   e.preventDefault();
-  const w = parseFloat($("#cW").value), h = parseFloat($("#cH").value), s = SERIES[$("#cS").value];
+  const w = parseFloat($("#cW").value), h = parseFloat($("#cH").value);
   const err = $("#calcErr");
   if (!(w > 0) || !(h > 0)) {
-    err.textContent = "Isi lebar dan tinggi dinding dalam meter, contoh 3,5.";
+    err.textContent = t("calcErr");
     err.hidden = false; (!(w > 0) ? $("#cW") : $("#cH")).focus(); return;
   }
   err.hidden = true;
-  const cols = Math.ceil(w / PANEL_W), rows = Math.ceil(h / PANEL_H), n = cols * rows;
-  $("#calcRes").innerHTML = `
-    <span class="small">Dinding ${m2(w)} × ${m2(h)} m (${m2(w * h)} m²)</span>
-    <b class="big">${n} panel</b>
-    <span class="small">${cols} panel berdampingan × ${rows} baris. Perkiraan ${s.name}: <b>${rp(n * s.price)}</b> sebelum ongkir${n < PACKING_MIN ? " dan packing kayu" : ""}.</span>
-    <a class="link" href="#katalog" data-series="${$("#cS").value}">Pilih motif ${s.name}</a>`;
+  calc = { w, h, key: $("#cS").value };
+  renderCalc();
 });
 $("#calcRes").addEventListener("click", e => {
   const a = e.target.closest("[data-series]"); if (!a) return;
@@ -756,22 +966,22 @@ function itemsHTML(editable) {
     const p = PRODUCTS.find(x => x.id === i.id);
     return `<div class="line-item">
       <img src="${p.img}" alt="">
-      <div><div class="t">${esc(p.name)}</div><div class="s">${p.code} · ${i.thick} mm · ${rp(unitPrice(p, i.thick))} / panel</div>
+      <div><div class="t">${esc(p.name)}</div><div class="s">${p.code} · ${i.thick} mm · ${rp(unitPrice(p, i.thick))} ${t("perPanel")}</div>
         ${editable
-          ? `<div class="li-ctrl"><div class="qty"><button type="button" data-ci="${idx}" data-d="-1" aria-label="Kurangi ${esc(p.name)}">−</button><input type="number" min="1" value="${i.qty}" data-cq="${idx}" aria-label="Jumlah panel ${esc(p.name)}"><button type="button" data-ci="${idx}" data-d="1" aria-label="Tambah ${esc(p.name)}">+</button></div><button class="link" type="button" data-rm="${idx}">Hapus</button></div>`
-          : `<div class="s">${i.qty} panel</div>`}
+          ? `<div class="li-ctrl"><div class="qty"><button type="button" data-ci="${idx}" data-d="-1" aria-label="${esc(t("minusItem", p.name))}">−</button><input type="number" min="1" value="${i.qty}" data-cq="${idx}" aria-label="${esc(t("qtyItem", p.name))}"><button type="button" data-ci="${idx}" data-d="1" aria-label="${esc(t("plusItem", p.name))}">+</button></div><button class="link" type="button" data-rm="${idx}">${t("remove")}</button></div>`
+          : `<div class="s">${t("panels", i.qty)}</div>`}
       </div>
       <div class="price">${rp(unitPrice(p, i.thick) * i.qty)}</div>
     </div>`;
   }).join("");
 }
 function sumHTML() {
-  const t = totals();
+  const tot = totals();
   return `<div class="sum">
-    <div><span>Subtotal (${t.pcs} panel)</span><span>${rp(t.sub)}</span></div>
-    <div><span>Packing kayu</span><span>${t.packing ? rp(t.packing) : "Tidak"}</span></div>
-    <div><span>Ongkir (perkiraan demo)</span><span>${rp(t.shipping)}</span></div>
-    <div class="total"><span>Total</span><span>${rp(t.total)}</span></div>
+    <div><span>${t("sub", tot.pcs)}</span><span>${rp(tot.sub)}</span></div>
+    <div><span>${t("packing")}</span><span>${tot.packing ? rp(tot.packing) : t("no")}</span></div>
+    <div><span>${t("shipping")}</span><span>${rp(tot.shipping)}</span></div>
+    <div class="total"><span>${t("total")}</span><span>${rp(tot.total)}</span></div>
   </div>`;
 }
 function renderCart() {
@@ -779,57 +989,58 @@ function renderCart() {
   panel.classList.toggle("wide", view === "checkout");
   if (view === "cart") {
     panel.innerHTML = `
-      <div class="panel-head"><h2 id="cartTitle">Keranjang</h2><button class="x" type="button" data-close aria-label="Tutup keranjang">${X_ICON}</button></div>
+      <div class="panel-head"><h2 id="cartTitle">${t("cartTitle")}</h2><button class="x" type="button" data-close aria-label="${t("closeCart")}">${X_ICON}</button></div>
       ${cart.length ? `<div>${itemsHTML(true)}</div>${sumHTML()}
-        <button class="btn btn-primary btn-block" type="button" id="toCheckout">Isi alamat pengiriman</button>`
-      : `<div class="empty"><p>Keranjang masih kosong. Pilih motif di katalog, lalu tentukan jumlah panel.</p><a class="btn btn-ghost" href="#katalog" data-close>Buka katalog</a></div>`}`;
+        <button class="btn btn-primary btn-block" type="button" id="toCheckout">${t("toCheckout")}</button>`
+      : `<div class="empty"><p>${t("empty")}</p><a class="btn btn-ghost" href="#katalog" data-close>${t("openCatalog")}</a></div>`}`;
   } else {
-    const t = totals(), saved = store.get("redeco-buyer", {});
+    const tot = totals(), saved = store.get("redeco-buyer", {});
     const v = k => esc(saved[k] || "");
     panel.innerHTML = `
-      <div class="panel-head"><h2 id="cartTitle">Checkout</h2><button class="x" type="button" data-close aria-label="Tutup checkout">${X_ICON}</button></div>
+      <div class="panel-head"><h2 id="cartTitle">${t("coTitle")}</h2><button class="x" type="button" data-close aria-label="${t("closeCo")}">${X_ICON}</button></div>
       <div class="co">
         <form class="form" id="coForm" novalidate>
-          <h3>Alamat pengiriman</h3>
-          <label class="f" for="fName">Nama penerima<input id="fName" name="name" required autocomplete="name" placeholder="Nama sesuai alamat" value="${v("name")}"></label>
+          <h3>${t("addrH")}</h3>
+          <label class="f" for="fName"><span class="lt">${t("fName")}</span><input id="fName" name="name" required autocomplete="name" placeholder="${t("fNamePh")}" value="${v("name")}"></label>
           <div class="form-2">
-            <label class="f" for="fPhone">Nomor WhatsApp<input id="fPhone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx" value="${v("phone")}"></label>
-            <label class="f" for="fEmail">Email<input id="fEmail" name="email" type="email" required autocomplete="email" placeholder="email@contoh.com" value="${v("email")}"></label>
+            <label class="f" for="fPhone"><span class="lt">${t("fPhone")}</span><input id="fPhone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx" value="${v("phone")}"></label>
+            <label class="f" for="fEmail"><span class="lt">${t("fEmail")}</span><input id="fEmail" name="email" type="email" required autocomplete="email" placeholder="email@contoh.com" value="${v("email")}"></label>
           </div>
-          <label class="f" for="fAddr">Alamat lengkap<textarea id="fAddr" name="addr" rows="3" required autocomplete="street-address" placeholder="Jalan, nomor, RT/RW, kelurahan">${v("addr")}</textarea></label>
+          <label class="f" for="fAddr"><span class="lt">${t("fAddr")}</span><textarea id="fAddr" name="addr" rows="3" required autocomplete="street-address" placeholder="${t("fAddrPh")}">${v("addr")}</textarea></label>
           <div class="form-2">
-            <label class="f" for="fCity">Kota atau kabupaten<input id="fCity" name="city" required autocomplete="address-level2" value="${v("city")}"></label>
-            <label class="f" for="fZip">Kode pos<input id="fZip" name="zip" required inputmode="numeric" autocomplete="postal-code" value="${v("zip")}"></label>
+            <label class="f" for="fCity"><span class="lt">${t("fCity")}</span><input id="fCity" name="city" required autocomplete="address-level2" value="${v("city")}"></label>
+            <label class="f" for="fZip"><span class="lt">${t("fZip")}</span><input id="fZip" name="zip" required inputmode="numeric" autocomplete="postal-code" value="${v("zip")}"></label>
           </div>
           <label class="check" for="fPack"><input id="fPack" type="checkbox" ${ship.packing ? "checked" : ""}>
-            <span><b>Packing kayu (+${rp(WOOD_PACKING)})</b><br><span class="small">${t.pcs < PACKING_MIN ? `Pesanan Anda ${t.pcs} panel. Di bawah ${PACKING_MIN} panel tanpa packing kayu, kerusakan di jalan di luar tanggung jawab Redeco.` : `Pesanan ${PACKING_MIN} panel ke atas, packing kayu opsional.`}</span></span></label>
+            <span><b>${t("packLabel", rp(WOOD_PACKING))}</b><br><span class="small">${tot.pcs < PACKING_MIN ? t("packWarn", tot.pcs, PACKING_MIN) : t("packOpt", PACKING_MIN)}</span></span></label>
           <p class="err" id="coErr" role="alert" hidden></p>
         </form>
         <aside class="co-side">
-          <h3>Ringkasan pesanan</h3>
+          <h3>${t("summary")}</h3>
           <div>${itemsHTML(false)}</div>
           ${sumHTML()}
-          <button class="btn btn-primary btn-block" type="submit" form="coForm">Bayar ${rp(t.total)} lewat Midtrans</button>
-          <button class="link" type="button" id="backCart">Ubah isi keranjang</button>
-          <p class="small">Metode di Midtrans: QRIS, virtual account bank, GoPay, ShopeePay, kartu kredit/debit.</p>
+          <button class="btn btn-primary btn-block" type="submit" form="coForm">${t("pay", rp(tot.total))}</button>
+          <button class="link" type="button" id="backCart">${t("backCart")}</button>
+          <p class="small">${t("methodsLine")}</p>
         </aside>
       </div>`;
   }
 }
 $("#openCart").addEventListener("click", () => { view = "cart"; renderCart(); openOverlay("#cartOverlay"); });
 $("#cartPanel").addEventListener("click", e => {
-  const t = e.target;
-  if (t.closest("[data-close]")) return closeOverlays();
-  if (t.closest("#toCheckout")) { view = "checkout"; ship.packing = totals().pcs < PACKING_MIN; renderCart(); return $("#fName").focus(); }
-  if (t.closest("#backCart")) { keepForm(); view = "cart"; renderCart(); return $("#cartPanel .x").focus(); }
-  const d = t.closest("[data-d]");
+  const el = e.target;
+  if (el.closest("[data-close]")) return closeOverlays();
+  if (el.closest("#toCheckout")) { view = "checkout"; ship.packing = totals().pcs < PACKING_MIN; renderCart(); return $("#fName").focus(); }
+  if (el.closest("#backCart")) { keepForm(); view = "cart"; renderCart(); return $("#cartPanel .x").focus(); }
+  const d = el.closest("[data-d]");
   if (d) { const it = cart[+d.dataset.ci]; it.qty = Math.max(1, it.qty + +d.dataset.d); saveCart(); renderCart(); return $(`[data-ci="${d.dataset.ci}"][data-d="${d.dataset.d}"]`).focus(); }
-  const rm = t.closest("[data-rm]"); if (rm) { cart.splice(+rm.dataset.rm, 1); saveCart(); renderCart(); $("#cartPanel .x").focus(); toast("Item dihapus dari keranjang"); }
+  const rm = el.closest("[data-rm]"); if (rm) { cart.splice(+rm.dataset.rm, 1); saveCart(); renderCart(); $("#cartPanel .x").focus(); toast(t("removed")); }
 });
 $("#cartPanel").addEventListener("change", e => {
   if (e.target.dataset.cq) { cart[+e.target.dataset.cq].qty = Math.max(1, parseInt(e.target.value) || 1); saveCart(); renderCart(); }
   if (e.target.id === "fPack") { ship.packing = e.target.checked; keepForm(); renderCart(); $("#fPack").focus(); }
 });
+$("#cartPanel").addEventListener("input", e => { if (e.target.closest("#coForm")) keepForm(); });
 function keepForm() { const f = $("#coForm"); if (f) store.set("redeco-buyer", Object.fromEntries(new FormData(f))); }
 $("#cartPanel").addEventListener("submit", e => {
   e.preventDefault();
@@ -838,10 +1049,10 @@ $("#cartPanel").addEventListener("submit", e => {
   f.querySelectorAll("[aria-invalid]").forEach(i => i.removeAttribute("aria-invalid"));
   if (missing.length) {
     missing.forEach(i => i.setAttribute("aria-invalid", "true"));
-    err.textContent = `Lengkapi ${missing.map(i => i.closest("label").firstChild.textContent.trim().toLowerCase()).join(", ")}.`;
+    err.textContent = t("missing", missing.map(i => i.closest("label").querySelector(".lt").textContent.trim().toLowerCase()).join(", "));
     err.hidden = false; missing[0].focus(); return;
   }
-  if (!/^\S+@\S+\.\S+$/.test(data.email)) { err.textContent = "Format email belum benar. Contoh: nama@email.com"; err.hidden = false; $("#fEmail").setAttribute("aria-invalid", "true"); $("#fEmail").focus(); return; }
+  if (!/^\S+@\S+\.\S+$/.test(data.email)) { err.textContent = t("emailErr"); err.hidden = false; $("#fEmail").setAttribute("aria-invalid", "true"); $("#fEmail").focus(); return; }
   err.hidden = true;
   store.set("redeco-buyer", data);
   openSnap(data);
@@ -851,12 +1062,13 @@ $("#cartPanel").addEventListener("submit", e => {
    Produksi: backend membuat transaksi Snap lalu frontend memanggil window.snap.pay(token).
    Status order final diambil dari notifikasi HTTP Midtrans, bukan dari callback browser. */
 let order = null;
+let snapStep = null;
 const METHODS = [
-  { id: "qris", name: "QRIS", hint: "Scan dengan e-wallet atau m-banking" },
-  { id: "bca", name: "BCA Virtual Account", hint: "Transfer ke nomor VA" },
-  { id: "bni", name: "BNI Virtual Account", hint: "Transfer ke nomor VA" },
-  { id: "mandiri", name: "Mandiri Bill Payment", hint: "Bayar lewat Livin' atau ATM" },
-  { id: "cc", name: "Kartu kredit atau debit", hint: "Visa, Mastercard, JCB" },
+  { id: "qris", name: () => "QRIS", hint: () => t("hQris") },
+  { id: "bca", name: () => "BCA Virtual Account", hint: () => t("hVa") },
+  { id: "bni", name: () => "BNI Virtual Account", hint: () => t("hVa") },
+  { id: "mandiri", name: () => "Mandiri Bill Payment", hint: () => t("hMandiri") },
+  { id: "cc", name: () => t("ccName"), hint: () => "Visa, Mastercard, JCB" },
 ];
 function openSnap(buyer) {
   order = { id: "RDC-" + Date.now().toString().slice(-8), total: totals().total, buyer, method: null };
@@ -865,34 +1077,35 @@ function openSnap(buyer) {
   setTimeout(() => renderSnap("choose"), 900);
 }
 function renderSnap(step) {
-  const head = `<div class="snap-top"><small>Redeco · ${order.id} · simulasi</small><b>${rp(order.total)}</b></div>`;
+  snapStep = step;
+  const head = `<div class="snap-top"><small>Redeco · ${order.id} · ${t("sim")}</small><b>${rp(order.total)}</b></div>`;
   let body = "";
   if (step === "loading") {
-    body = `<div class="status"><div class="spinner" aria-hidden="true"></div><p>Menyiapkan halaman pembayaran Midtrans...</p></div>`;
+    body = `<div class="status"><div class="spinner" aria-hidden="true"></div><p>${t("loading")}</p></div>`;
   } else if (step === "choose") {
-    body = `<h3>Pilih cara bayar</h3>
-      ${METHODS.map(m => `<button class="pm" type="button" data-m="${m.id}"><span><b>${m.name}</b><small>${m.hint}</small></span><span aria-hidden="true">›</span></button>`).join("")}
-      <button class="link" type="button" data-snap="cancel">Batalkan pembayaran</button>`;
+    body = `<h3>${t("choose")}</h3>
+      ${METHODS.map(m => `<button class="pm" type="button" data-m="${m.id}"><span><b>${m.name()}</b><small>${m.hint()}</small></span><span aria-hidden="true">›</span></button>`).join("")}
+      <button class="link" type="button" data-snap="cancel">${t("cancelPay")}</button>`;
   } else if (step === "pay") {
     const m = METHODS.find(x => x.id === order.method);
     const va = { bca: "12345", bni: "98801", mandiri: "70012" }[m.id];
-    body = `<h3>${m.name}</h3>
-      ${m.id === "qris" ? `<canvas class="qr" id="qr" width="29" height="29" role="img" aria-label="Kode QR simulasi"></canvas><p class="small" style="text-align:center">Kode QR simulasi, tidak bisa dipindai.</p>`
-      : m.id === "cc" ? `<div class="form"><label class="f" for="ccNo">Nomor kartu<input id="ccNo" inputmode="numeric" autocomplete="off" placeholder="Nomor kartu tes sandbox"></label><div class="form-2"><label class="f" for="ccExp">Berlaku sampai<input id="ccExp" placeholder="BB/TT"></label><label class="f" for="ccCvv">CVV<input id="ccCvv" inputmode="numeric" placeholder="3 digit"></label></div></div>`
-      : `<p>Nomor virtual account (simulasi):</p><div class="va">${va} ${order.id.replace(/\D/g, "").padStart(10, "0").slice(-10)}</div>`}
-      <p class="small">Demo ini tidak memproses uang. Pilih hasil yang mau disimulasikan:</p>
-      <button class="btn btn-primary btn-block" type="button" data-snap="paid">Simulasikan pembayaran berhasil</button>
-      <button class="btn btn-ghost btn-block" type="button" data-snap="fail">Simulasikan pembayaran gagal</button>
-      <button class="link" type="button" data-snap="back">Ganti cara bayar</button>`;
+    body = `<h3>${m.name()}</h3>
+      ${m.id === "qris" ? `<canvas class="qr" id="qr" width="29" height="29" role="img" aria-label="${t("qrAria")}"></canvas><p class="small" style="text-align:center">${t("qrNote")}</p>`
+      : m.id === "cc" ? `<div class="form"><label class="f" for="ccNo">${t("ccNo")}<input id="ccNo" inputmode="numeric" autocomplete="off" placeholder="${t("ccNoPh")}"></label><div class="form-2"><label class="f" for="ccExp">${t("ccExp")}<input id="ccExp" placeholder="${t("ccExpPh")}"></label><label class="f" for="ccCvv">CVV<input id="ccCvv" inputmode="numeric" placeholder="${t("ccCvvPh")}"></label></div></div>`
+      : `<p>${t("vaLabel")}</p><div class="va">${va} ${order.id.replace(/\D/g, "").padStart(10, "0").slice(-10)}</div>`}
+      <p class="small">${t("demoNote")}</p>
+      <button class="btn btn-primary btn-block" type="button" data-snap="paid">${t("simOk")}</button>
+      <button class="btn btn-ghost btn-block" type="button" data-snap="fail">${t("simFail")}</button>
+      <button class="link" type="button" data-snap="back">${t("changeMethod")}</button>`;
   } else if (step === "fail") {
-    body = `<div class="status" role="alert"><div class="status-ico bad" aria-hidden="true">!</div><h3>Pembayaran gagal</h3>
-      <p class="small">Bank menolak transaksi (simulasi). Pesanan belum dibuat dan keranjang tetap tersimpan.</p>
-      <button class="btn btn-primary btn-block" type="button" data-snap="back">Coba cara bayar lain</button>
-      <button class="link" type="button" data-snap="cancel">Kembali ke checkout</button></div>`;
+    body = `<div class="status" role="alert"><div class="status-ico bad" aria-hidden="true">!</div><h3>${t("failH")}</h3>
+      <p class="small">${t("failP")}</p>
+      <button class="btn btn-primary btn-block" type="button" data-snap="back">${t("tryOther")}</button>
+      <button class="link" type="button" data-snap="cancel">${t("backCo")}</button></div>`;
   } else {
-    body = `<div class="status" role="status"><div class="status-ico ok" aria-hidden="true">✓</div><h3>Pembayaran diterima</h3>
-      <p class="small">Order <b>${order.id}</b> tercatat (simulasi). Di toko asli, status ini dikonfirmasi dari notifikasi Midtrans.</p>
-      <button class="btn btn-primary btn-block" type="button" data-snap="finish">Selesai</button></div>`;
+    body = `<div class="status" role="status"><div class="status-ico ok" aria-hidden="true">✓</div><h3>${t("okH")}</h3>
+      <p class="small">${t("okP", order.id)}</p>
+      <button class="btn btn-primary btn-block" type="button" data-snap="finish">${t("done")}</button></div>`;
   }
   $("#snapBox").innerHTML = head + `<div class="snap-body">${body}</div>`;
   if (step === "pay" && order.method === "qris") drawQR();
@@ -912,11 +1125,11 @@ function closeSnap() { $("#snap").hidden = true; $("#cartPanel button[type=submi
 $("#snapBox").addEventListener("click", e => {
   const m = e.target.closest("[data-m]"); if (m) { order.method = m.dataset.m; return renderSnap("pay"); }
   const a = e.target.closest("[data-snap]")?.dataset.snap;
-  if (a === "cancel") { closeSnap(); toast("Pembayaran dibatalkan. Keranjang masih tersimpan."); }
+  if (a === "cancel") { closeSnap(); toast(t("cancelled")); }
   if (a === "back") renderSnap("choose");
   if (a === "paid") renderSnap("done");
   if (a === "fail") renderSnap("fail");
-  if (a === "finish") { $("#snap").hidden = true; cart = []; saveCart(); view = "cart"; closeOverlays(); toast(`Order ${order.id} tercatat`); }
+  if (a === "finish") { $("#snap").hidden = true; cart = []; saveCart(); view = "cart"; closeOverlays(); toast(t("orderDone", order.id)); }
 });
 
 /* Overlay: fokus dikunci di dalam dialog, Escape menutup. */
@@ -939,7 +1152,7 @@ function activeDialog() {
 document.addEventListener("keydown", e => {
   const dlg = activeDialog();
   if (e.key === "Escape") {
-    if (!$("#snap").hidden) { closeSnap(); toast("Pembayaran dibatalkan. Keranjang masih tersimpan."); return; }
+    if (!$("#snap").hidden) { closeSnap(); toast(t("cancelled")); return; }
     if (dlg) return closeOverlays();
     if (menuOpen) { setMenu(false); menuBtn.focus(); }
     return;
@@ -953,7 +1166,30 @@ document.addEventListener("keydown", e => {
   else if (!dlg.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
 });
 
-renderTabs(); renderGrid(); saveCart();
+/* Ganti bahasa: teks statis lewat data-t / data-th / data-ta, lalu render ulang bagian dinamis. */
+function applyLang(next) {
+  lang = I18N[next] ? next : "id";
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el => (el.textContent = t(el.dataset.t)));
+  document.querySelectorAll("[data-th]").forEach(el => (el.innerHTML = t(el.dataset.th)));
+  document.querySelectorAll("[data-ta]").forEach(el => el.dataset.ta.split(";").forEach(pair => {
+    const [attr, key] = pair.split(":"); el.setAttribute(attr, t(key));
+  }));
+  $(".cart-label").textContent = t("cart");
+  $("#menuTxt").textContent = menuOpen ? t("close") : t("menu");
+  const lb = $("#langBtn"); lb.textContent = t("langBtn"); lb.lang = t("langBtnLang"); lb.setAttribute("aria-label", t("langAria"));
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  applyTheme(document.documentElement.dataset.theme || null);
+  renderTabs(); renderGrid(); renderCalcOptions(); renderCalc();
+  if (!$("#pdOverlay").hidden) renderProduct();
+  if (!$("#cartOverlay").hidden) { keepForm(); renderCart(); }
+  if (!$("#snap").hidden && snapStep) renderSnap(snapStep);
+}
+function setLang(next) { store.set("redeco-lang", next); applyLang(next); }
+$("#langBtn").addEventListener("click", () => setLang(lang === "id" ? "en" : "id"));
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
+
+applyLang(store.get("redeco-lang", "id")); saveCart();
 </script>
 </body>
 </html>
